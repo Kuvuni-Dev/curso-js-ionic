@@ -27,6 +27,7 @@ import { navigateTo } from '../../app/router.js';
 const CATEGORIES = [
   {
     label: 'Estructura',
+    folder: 'estructura',
     color: 'tertiary',
     icon: 'layers-outline',
     components: [
@@ -46,6 +47,7 @@ const CATEGORIES = [
   },
   {
     label: 'Botones y acciones',
+    folder: 'botones',
     color: 'primary',
     icon: 'hand-left-outline',
     components: [
@@ -59,6 +61,7 @@ const CATEGORIES = [
   },
   {
     label: 'Formularios',
+    folder: 'formularios',
     color: 'success',
     icon: 'create-outline',
     components: [
@@ -79,6 +82,7 @@ const CATEGORIES = [
   },
   {
     label: 'Layout y contenido',
+    folder: 'layout',
     color: 'warning',
     icon: 'grid-outline',
     components: [
@@ -105,6 +109,7 @@ const CATEGORIES = [
   },
   {
     label: 'Interacción y scroll',
+    folder: 'interaccion',
     color: 'medium',
     icon: 'finger-print-outline',
     components: [
@@ -119,6 +124,7 @@ const CATEGORIES = [
   },
   {
     label: 'Navegación',
+    folder: 'navegacion',
     color: 'secondary',
     icon: 'navigate-outline',
     components: [
@@ -135,6 +141,7 @@ const CATEGORIES = [
   },
   {
     label: 'Feedback y overlays',
+    folder: 'feedback',
     color: 'danger',
     icon: 'chatbubble-ellipses-outline',
     components: [
@@ -208,8 +215,24 @@ export function renderIonicSection() {
 }
 
 /**
+ * Mapa componentId → carpeta de categoría.
+ * Se construye a partir de CATEGORIES para no duplicar información.
+ * Si un id aparece en varias categorías (no debería), prevalece el primero.
+ */
+const COMPONENT_FOLDER = (() => {
+  /** @type {Record<string, string>} */
+  const map = {};
+  for (const cat of CATEGORIES) {
+    for (const c of cat.components) {
+      if (c.id && !map[c.id]) map[c.id] = cat.folder;
+    }
+  }
+  return map;
+})();
+
+/**
  * Carga y renderiza el demo de un componente específico.
- * Importa dinámicamente el archivo *.demo.js correspondiente.
+ * Importa dinámicamente el archivo *.demo.js de su subcarpeta de categoría.
  *
  * @param {string} componentId - El id del componente (ej: 'ion-button')
  */
@@ -217,9 +240,12 @@ export async function renderIonicComponent(componentId) {
   appRoot.innerHTML = `<section class="page"><ion-spinner name="crescent"></ion-spinner></section>`;
 
   try {
+    // Resuelve la subcarpeta según la categoría a la que pertenece el componente.
+    const folder = COMPONENT_FOLDER[componentId];
+    if (!folder) throw new Error(`Carpeta desconocida para: ${componentId}`);
+
     // import() dinámico: carga solo el módulo que se necesita en ese momento.
-    // Esto evita cargar todos los demos al inicio de la app.
-    const module = await import(`./components/${componentId}.demo.js`);
+    const module = await import(`./components/${folder}/${componentId}.demo.js`);
 
     // Cada demo exporta render() e init()
     appRoot.innerHTML = module.render();
