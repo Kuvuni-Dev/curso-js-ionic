@@ -1,9 +1,9 @@
 /**
  * @file ion-tabs.demo.js
- * @description Demo didactico de <ion-tabs>, <ion-tab-bar> e <ion-tab-button>.
+ * @description Demo didáctico de <ion-tabs>, <ion-tab-bar> e <ion-tab-button>.
  *
  * Nota: en esta app CDN se simula la UI para evitar dependencias de chunks
- * de lazy-loading en componentes no basicos. El codigo de ejemplo muestra
+ * de lazy-loading en componentes no básicos. El código de ejemplo muestra
  * la estructura real recomendada en Ionic.
  */
 
@@ -35,15 +35,15 @@ const TABS = [
     icon: 'home-outline',
     color: '#3B82F6',
     title: 'Pantalla principal',
-    text: 'Aqui suele vivir el dashboard, accesos rapidos y resumenes del usuario.',
+    text: 'Aquí suele vivir el dashboard, accesos rápidos y resúmenes del usuario.',
   },
   {
     key: 'search',
     label: 'Buscar',
     icon: 'search-outline',
     color: '#22C55E',
-    title: 'Busqueda global',
-    text: 'La pestana de busqueda concentra filtros, historico y resultados.',
+    title: 'Búsqueda global',
+    text: 'La pestaña de búsqueda concentra filtros, histórico y resultados.',
   },
   {
     key: 'profile',
@@ -59,7 +59,7 @@ const TABS = [
     icon: 'settings-outline',
     color: '#F59E0B',
     title: 'Preferencias avanzadas',
-    text: 'Seguridad, notificaciones y opciones tecnicas por modulo.',
+    text: 'Seguridad, notificaciones y opciones técnicas por módulo.',
   },
 ];
 
@@ -81,7 +81,7 @@ export function render() {
       <div class="demo-header">
         <ion-button fill="clear" onclick="location.hash='#/ionic'">
           <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
-          Volver al catalogo
+          Volver al catálogo
         </ion-button>
         <h2>ion-tabs</h2>
         <p class="demo-desc">
@@ -92,7 +92,7 @@ export function render() {
       </div>
 
       <div class="demo-group">
-        <h3 class="demo-group-title">Anatomia: tabs en 3 capas</h3>
+        <h3 class="demo-group-title">Anatomía: tabs en 3 capas</h3>
         <div class="demo-nav-anatomy">
           <div class="demo-nav-layer demo-nav-layer--top">
             <ion-icon name="layers-outline"></ion-icon>
@@ -112,7 +112,7 @@ export function render() {
       <div class="demo-group">
         <h3 class="demo-group-title">Demo interactivo: shell con tabs</h3>
         <p class="demo-group-desc">
-          Pulsa una pestana para cambiar la vista activa.
+          Pulsa una pestaña para cambiar la vista activa.
           En una app real, cada tab suele mapear a una ruta hija.
         </p>
 
@@ -136,29 +136,29 @@ export function render() {
       </div>
 
       <div class="demo-group">
-        <h3 class="demo-group-title">Buenas practicas</h3>
+        <h3 class="demo-group-title">Buenas prácticas</h3>
         <div class="demo-attr-table">
           <div class="demo-attr-row">
-            <code>4-5 tabs maximo</code>
-            <span>Si hay mas secciones, usa menu lateral o subnavegacion.</span>
+            <code>4-5 tabs máximo</code>
+            <span>Si hay más secciones, usa menú lateral o subnavegación.</span>
           </div>
           <div class="demo-attr-row">
             <code>Estados persistentes por tab</code>
-            <span>Cada tab puede conservar su propio stack de navegacion.</span>
+            <span>Cada tab puede conservar su propio stack de navegación.</span>
           </div>
           <div class="demo-attr-row">
             <code>Icono + etiqueta</code>
-            <span>Facilita escaneo rapido y mejora accesibilidad.</span>
+            <span>Facilita escaneo rápido y mejora accesibilidad.</span>
           </div>
           <div class="demo-attr-row">
             <code>tab="..."</code>
-            <span>Identificador unico de cada <code>ion-tab-button</code>.</span>
+            <span>Identificador único de cada <code>ion-tab-button</code>.</span>
           </div>
         </div>
       </div>
 
       <div class="demo-group">
-        <h3 class="demo-group-title">Codigo de ejemplo</h3>
+        <h3 class="demo-group-title">Código de ejemplo</h3>
         <pre class="demo-code"><code>${escapeHtml(CODE_EXAMPLE)}</code></pre>
       </div>
     </section>

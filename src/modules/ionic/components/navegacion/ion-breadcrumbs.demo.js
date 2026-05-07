@@ -1,20 +1,20 @@
 /**
  * @file ion-breadcrumbs.demo.js
- * @description Demo didactico de <ion-breadcrumbs> e <ion-breadcrumb>.
+ * @description Demo didáctico de <ion-breadcrumbs> e <ion-breadcrumb>.
  */
 
 const CODE_EXAMPLE = `<ion-breadcrumbs max-items="4" items-before-collapse="1" items-after-collapse="2">
   <ion-breadcrumb href="/home">Inicio</ion-breadcrumb>
   <ion-breadcrumb href="/cursos">Cursos</ion-breadcrumb>
   <ion-breadcrumb href="/ionic">Ionic</ion-breadcrumb>
-  <ion-breadcrumb href="/modulos">Modulo 4</ion-breadcrumb>
-  <ion-breadcrumb active="true">Navegacion</ion-breadcrumb>
+  <ion-breadcrumb href="/modulos">Módulo 4</ion-breadcrumb>
+  <ion-breadcrumb active="true">Navegación</ion-breadcrumb>
 </ion-breadcrumbs>`;
 
 const PATHS = {
   corto: ['Inicio', 'Cursos', 'Ionic'],
-  medio: ['Inicio', 'Cursos', 'Ionic', 'Modulo 4', 'Navegacion'],
-  largo: ['Inicio', 'Cursos', 'Ionic', 'Avanzado', 'Modulo 4', 'Semana 2', 'Navegacion'],
+  medio: ['Inicio', 'Cursos', 'Ionic', 'Módulo 4', 'Navegación'],
+  largo: ['Inicio', 'Cursos', 'Ionic', 'Avanzado', 'Módulo 4', 'Semana 2', 'Navegación'],
 };
 
 function crumb(item, index, total) {
@@ -34,11 +34,11 @@ export function render() {
       <div class="demo-header">
         <ion-button fill="clear" onclick="location.hash='#/ionic'">
           <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
-          Volver al catalogo
+          Volver al catálogo
         </ion-button>
         <h2>ion-breadcrumbs</h2>
         <p class="demo-desc">
-          <code>ion-breadcrumbs</code> muestra la ruta jerarquica actual.
+          <code>ion-breadcrumbs</code> muestra la ruta jerárquica actual.
           Cada paso se representa con <code>ion-breadcrumb</code>.
         </p>
       </div>
@@ -46,7 +46,7 @@ export function render() {
       <div class="demo-group">
         <h3 class="demo-group-title">Demo interactivo: ruta y colapso</h3>
         <p class="demo-group-desc">
-          Cambia la profundidad para simular como se colapsan rutas largas.
+          Cambia la profundidad para simular cómo se colapsan rutas largas.
         </p>
 
         <div class="demo-bc-controls">
@@ -61,11 +61,11 @@ export function render() {
 
         <div class="demo-bc-preview" id="bc-preview">
           <ion-icon name="document-text-outline"></ion-icon>
-          Estas en: <strong>Navegacion</strong>
+          Estás en: <strong>Navegación</strong>
         </div>
 
         <div class="demo-nav-log" id="bc-log">
-          Ruta activa: Inicio / Cursos / Ionic / Modulo 4 / Navegacion
+          Ruta activa: Inicio / Cursos / Ionic / Módulo 4 / Navegación
         </div>
       </div>
 
@@ -74,25 +74,25 @@ export function render() {
         <div class="demo-attr-table">
           <div class="demo-attr-row">
             <code>max-items</code>
-            <span>Numero maximo de migas visibles antes de colapsar.</span>
+            <span>Número máximo de migas visibles antes de colapsar.</span>
           </div>
           <div class="demo-attr-row">
             <code>items-before-collapse</code>
-            <span>Cuantas migas mostrar al inicio cuando se colapsa.</span>
+            <span>Cuántas migas mostrar al inicio cuando se colapsa.</span>
           </div>
           <div class="demo-attr-row">
             <code>items-after-collapse</code>
-            <span>Cuantas migas mostrar al final cuando se colapsa.</span>
+            <span>Cuántas migas mostrar al final cuando se colapsa.</span>
           </div>
           <div class="demo-attr-row">
             <code>active</code>
-            <span>Marca la miga actual (normalmente la ultima).</span>
+            <span>Marca la miga actual (normalmente la última).</span>
           </div>
         </div>
       </div>
 
       <div class="demo-group">
-        <h3 class="demo-group-title">Codigo de ejemplo</h3>
+        <h3 class="demo-group-title">Código de ejemplo</h3>
         <pre class="demo-code"><code>${escapeHtml(CODE_EXAMPLE)}</code></pre>
       </div>
     </section>
@@ -121,14 +121,14 @@ export function init(container) {
       .join('<span class="demo-bc-sep">/</span>');
 
     const last = items[items.length - 1];
-    preview.innerHTML = `<ion-icon name="document-text-outline"></ion-icon> Estas en: <strong>${last}</strong>`;
+    preview.innerHTML = `<ion-icon name="document-text-outline"></ion-icon> Estás en: <strong>${last}</strong>`;
     log.textContent = `Ruta activa: ${items.join(' / ')}`;
 
     wrap.querySelectorAll('[data-nav]').forEach((el) => {
       el.addEventListener('click', () => {
         const label = el.getAttribute('data-nav');
         if (!label) return;
-        log.innerHTML = `<ion-icon name="return-up-forward-outline"></ion-icon> Navegacion simulada a: <code>${label}</code>`;
+        log.innerHTML = `<ion-icon name="return-up-forward-outline"></ion-icon> Navegación simulada a: <code>${label}</code>`;
       });
     });
   }

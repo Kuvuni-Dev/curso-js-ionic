@@ -1,12 +1,12 @@
 /**
  * @file ion-menu.demo.js
- * @description Demo didactico de <ion-menu> e <ion-menu-button>.
+ * @description Demo didáctico de <ion-menu> e <ion-menu-button>.
  */
 
 const CODE_EXAMPLE = `<ion-menu content-id="main-content" side="start" menu-id="main-menu">
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Menu</ion-title>
+      <ion-title>Menú</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -30,8 +30,8 @@ const CODE_EXAMPLE = `<ion-menu content-id="main-content" side="start" menu-id="
 <ion-content id="main-content">...</ion-content>`;
 
 const MENU_ITEMS = [
-  { key: 'inicio', label: 'Inicio', icon: 'home-outline', desc: 'Resumen general y accesos rapidos.' },
-  { key: 'modulos', label: 'Modulos', icon: 'layers-outline', desc: 'Contenido del curso por bloques tematicos.' },
+  { key: 'inicio', label: 'Inicio', icon: 'home-outline', desc: 'Resumen general y accesos rápidos.' },
+  { key: 'modulos', label: 'Módulos', icon: 'layers-outline', desc: 'Contenido del curso por bloques temáticos.' },
   { key: 'favoritos', label: 'Favoritos', icon: 'heart-outline', desc: 'Lecciones guardadas por el estudiante.' },
   { key: 'ajustes', label: 'Ajustes', icon: 'settings-outline', desc: 'Preferencias de cuenta y notificaciones.' },
 ];
@@ -53,7 +53,7 @@ export function render() {
       <div class="demo-header">
         <ion-button fill="clear" onclick="location.hash='#/ionic'">
           <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
-          Volver al catalogo
+          Volver al catálogo
         </ion-button>
         <h2>ion-menu</h2>
         <p class="demo-desc">
@@ -65,14 +65,14 @@ export function render() {
       <div class="demo-group">
         <h3 class="demo-group-title">Demo interactivo: drawer lateral</h3>
         <p class="demo-group-desc">
-          Pulsa el boton Menu para abrir/cerrar el panel y selecciona una seccion.
+          Pulsa el botón Menú para abrir/cerrar el panel y selecciona una sección.
         </p>
 
         <div class="demo-menu-shell">
           <div class="demo-menu-topbar">
             <ion-button size="small" id="menu-toggle-btn">
               <ion-icon slot="start" name="menu-outline"></ion-icon>
-              Menu
+              Menú
             </ion-button>
             <span class="demo-menu-title">Dashboard docente</span>
           </div>
@@ -83,7 +83,7 @@ export function render() {
                 <div class="demo-menu-avatar">JS</div>
                 <div>
                   <strong>Curso JS + Ionic</strong>
-                  <p>Panel lateral de navegacion</p>
+                  <p>Panel lateral de navegación</p>
                 </div>
               </div>
               <div class="demo-menu-list" id="menu-list">
@@ -104,29 +104,29 @@ export function render() {
       </div>
 
       <div class="demo-group">
-        <h3 class="demo-group-title">Eventos utiles</h3>
+        <h3 class="demo-group-title">Eventos útiles</h3>
         <div class="demo-attr-table">
           <div class="demo-attr-row">
             <code>ionWillOpen / ionDidOpen</code>
-            <span>Antes y despues de abrir el menu.</span>
+            <span>Antes y después de abrir el menú.</span>
           </div>
           <div class="demo-attr-row">
             <code>ionWillClose / ionDidClose</code>
-            <span>Antes y despues de cerrar el menu.</span>
+            <span>Antes y después de cerrar el menú.</span>
           </div>
           <div class="demo-attr-row">
             <code>content-id</code>
-            <span>Debe apuntar al id del contenido principal que desplaza el menu.</span>
+            <span>Debe apuntar al id del contenido principal que desplaza el menú.</span>
           </div>
           <div class="demo-attr-row">
             <code>side</code>
-            <span>Define lado del menu: <code>start</code> o <code>end</code>.</span>
+            <span>Define lado del menú: <code>start</code> o <code>end</code>.</span>
           </div>
         </div>
       </div>
 
       <div class="demo-group">
-        <h3 class="demo-group-title">Codigo de ejemplo</h3>
+        <h3 class="demo-group-title">Código de ejemplo</h3>
         <pre class="demo-code"><code>${escapeHtml(CODE_EXAMPLE)}</code></pre>
       </div>
     </section>
@@ -173,7 +173,7 @@ export function init(container) {
       title.textContent = item.label;
       text.textContent = item.desc;
 
-      log.innerHTML = `<ion-icon name="navigate-outline"></ion-icon> Navegacion simulada a: <code>${item.label}</code>`;
+      log.innerHTML = `<ion-icon name="navigate-outline"></ion-icon> Navegación simulada a: <code>${item.label}</code>`;
 
       if (window.innerWidth < 700) setOpen(false);
     });

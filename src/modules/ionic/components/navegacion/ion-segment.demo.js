@@ -1,6 +1,6 @@
 /**
  * @file ion-segment.demo.js
- * @description Demo didactico de <ion-segment> e <ion-segment-button>.
+ * @description Demo didáctico de <ion-segment> e <ion-segment-button>.
  */
 
 const CODE_EXAMPLE = `<ion-segment value="mensual" (ionChange)="onSegmentChange($event)">
@@ -24,21 +24,21 @@ const SEGMENTS = [
     label: 'Resumen',
     icon: 'bar-chart-outline',
     title: 'Vista de resumen',
-    text: 'Muestra metricas principales en una sola pantalla para lectura rapida.',
+    text: 'Muestra métricas principales en una sola pantalla para lectura rápida.',
   },
   {
     value: 'detalle',
     label: 'Detalle',
     icon: 'list-outline',
     title: 'Vista detallada',
-    text: 'Incluye desgloses por seccion, tablas y estado de cada item.',
+    text: 'Incluye desgloses por sección, tablas y estado de cada item.',
   },
   {
     value: 'historial',
     label: 'Historial',
     icon: 'time-outline',
-    title: 'Linea temporal',
-    text: 'Ideal para auditoria de cambios y seguimiento de actividad reciente.',
+    title: 'Línea temporal',
+    text: 'Ideal para auditoría de cambios y seguimiento de actividad reciente.',
   },
 ];
 
@@ -59,18 +59,18 @@ export function render() {
       <div class="demo-header">
         <ion-button fill="clear" onclick="location.hash='#/ionic'">
           <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
-          Volver al catalogo
+          Volver al catálogo
         </ion-button>
         <h2>ion-segment</h2>
         <p class="demo-desc">
           <code>ion-segment</code> permite alternar entre vistas cercanas
-          sin cambiar de ruta. Cada opcion vive en
+          sin cambiar de ruta. Cada opción vive en
           <code>ion-segment-button</code>.
         </p>
       </div>
 
       <div class="demo-group">
-        <h3 class="demo-group-title">Cuandolo usar</h3>
+        <h3 class="demo-group-title">Cuándo usarlo</h3>
         <div class="demo-attr-table">
           <div class="demo-attr-row">
             <code>Mismo contexto</code>
@@ -82,7 +82,7 @@ export function render() {
           </div>
           <div class="demo-attr-row">
             <code>value + ionChange</code>
-            <span>Controla estado con <code>value</code> y escucha <code>ionChange</code>.</span>
+            <span>Controla el estado con <code>value</code> y escucha <code>ionChange</code>.</span>
           </div>
         </div>
       </div>
@@ -106,7 +106,7 @@ export function render() {
       </div>
 
       <div class="demo-group">
-        <h3 class="demo-group-title">Codigo de ejemplo</h3>
+        <h3 class="demo-group-title">Código de ejemplo</h3>
         <pre class="demo-code"><code>${escapeHtml(CODE_EXAMPLE)}</code></pre>
       </div>
     </section>
