@@ -2855,3 +2855,258 @@ ion-segment-button::part(indicator-background) {
     padding: 10px;
   }
 }
+
+
+/* ===================================================================
+   DEMOS JS — Estilos compartidos para todos los componentes de JS
+   =================================================================== */
+
+/* Párrafo descriptivo bajo el título */
+.js-subtitle {
+  font-size: 15px;
+  color: var(--ion-color-medium-shade);
+  margin: 4px 0 16px;
+  line-height: 1.55;
+}
+
+/* Título de sección dentro de un demo */
+.js-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ion-color-primary);
+  margin: 20px 0 6px;
+}
+
+/* Bloque de código explicativo */
+.js-code-panel {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  font-family: 'Consolas', 'Fira Code', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 12px 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 6px 0 12px;
+}
+
+/* Área de resultado / salida de demo */
+.js-output {
+  background: var(--ion-color-light);
+  border-left: 4px solid var(--ion-color-primary);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 8px 0 12px;
+  word-break: break-word;
+}
+
+/* Controles de botones */
+.js-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+/* Inputs y textareas de demos */
+.js-input {
+  border: 1px solid var(--ion-color-medium);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  background: var(--ion-color-light);
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+.js-input:focus {
+  outline: 2px solid var(--ion-color-primary);
+}
+
+/* Tabla de datasets (higher-order, array-methods) */
+.js-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 8px 0 12px;
+}
+.js-table th {
+  background: var(--ion-color-primary);
+  color: white;
+  padding: 6px 10px;
+  text-align: left;
+}
+.js-table td {
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--ion-color-light-shade);
+}
+.js-table tr:nth-child(even) td {
+  background: var(--ion-color-light);
+}
+.js-table tr.highlight td {
+  background: #fff3cd;
+  font-weight: 600;
+}
+
+/* Closure demo — grid de contadores */
+.js-counter-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 10px 0;
+}
+.js-counter-card {
+  background: var(--ion-color-light);
+  border: 2px solid var(--ion-color-primary);
+  border-radius: 10px;
+  padding: 14px 20px;
+  min-width: 130px;
+  text-align: center;
+}
+.js-counter-val {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ion-color-primary);
+  line-height: 1;
+  display: block;
+  margin: 4px 0;
+}
+
+/* Generators demo — chips de Fibonacci */
+.js-gen-trail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+  min-height: 36px;
+  align-items: center;
+}
+.js-gen-val {
+  background: var(--ion-color-primary);
+  color: white;
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  animation: js-el-enter 0.25s ease;
+}
+
+/* Event-loop demo — tablero de 3 columnas */
+.js-el-board {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 14px;
+  min-height: 160px;
+}
+.js-el-col {
+  flex: 1;
+  background: var(--ion-color-light);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.js-el-col-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ion-color-medium-shade);
+  margin-bottom: 4px;
+  text-align: center;
+}
+.js-el-item {
+  background: var(--ion-color-primary);
+  color: white;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  text-align: center;
+  animation: js-el-enter 0.2s ease;
+}
+.js-el-item.micro {
+  background: var(--ion-color-success);
+}
+.js-el-item.macro {
+  background: var(--ion-color-warning);
+  color: #111;
+}
+
+/* Map-Set demo — barras de frecuencia */
+.js-freq-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 3px 0;
+}
+.js-freq-fill {
+  height: 18px;
+  background: var(--ion-color-primary);
+  border-radius: 3px;
+  min-width: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Prototype demo — cadena visual */
+.js-proto-chain {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+.js-proto-node {
+  background: var(--ion-color-primary);
+  color: white;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.js-proto-node.found {
+  background: var(--ion-color-success);
+}
+.js-proto-node.notfound {
+  background: var(--ion-color-medium);
+}
+.js-proto-arrow {
+  font-size: 18px;
+  color: var(--ion-color-medium-shade);
+}
+
+/* Consola simulada (async-await, observer) */
+.js-log {
+  background: #1a1a2e;
+  border-radius: 8px;
+  padding: 10px 12px;
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 8px 0 12px;
+}
+.js-log-line {
+  font-family: 'Consolas', monospace;
+  font-size: 12.5px;
+  color: #cdd6f4;
+  border-left: 3px solid #888;
+  padding-left: 8px;
+  line-height: 1.5;
+}
+.js-log-line small {
+  color: #6c7086;
+  margin-right: 8px;
+}
+
+/* Animación de entrada para items del event-loop y generators */
+@keyframes js-el-enter {
+  from { opacity: 0; transform: translateY(-6px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}

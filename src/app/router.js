@@ -17,8 +17,10 @@ export function navigateTo(view, param = '') {
 
 export function onRouteChange() {
   const { view, param } = getRoute();
-  // Si la vista es 'ionic' y hay parámetro, cargamos el demo del componente
-  const routeKey = view === 'ionic' && param ? 'ionic-component' : view;
+  let routeKey;
+  if (view === 'ionic' && param) routeKey = 'ionic-component';
+  else if (view === 'js' && param)  routeKey = 'js-component';
+  else                              routeKey = view;
   const renderer = _routes[routeKey] || renderNotFound;
   updateTopNav(view);
   renderer(param);
