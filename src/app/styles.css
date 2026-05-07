@@ -185,6 +185,166 @@ ion-segment-button::part(indicator-background) {
   color: var(--app-text);
 }
 
+/* Caja de previsualización para componentes estructurales */
+.demo-preview {
+  border: 1px solid var(--app-border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: var(--app-surface);
+}
+
+.demo-preview--tall {
+  min-height: 200px;
+}
+
+/* Diagrama visual de ion-split-pane */
+.demo-splitpane-diagram {
+  display: flex;
+  gap: 4px;
+  border: 1px solid var(--app-border);
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 160px;
+}
+
+.demo-splitpane-diagram__sidebar {
+  width: 180px;
+  min-width: 180px;
+  background: var(--ion-color-tertiary);
+  color: var(--ion-color-tertiary-contrast);
+  padding: 12px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.demo-splitpane-diagram__item {
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.15);
+  font-size: 0.82rem;
+}
+
+.demo-splitpane-diagram__main {
+  flex: 1;
+  background: var(--app-bg);
+  border-radius: 0 8px 8px 0;
+  overflow: hidden;
+}
+
+/* Diagrama de anatomía de ion-page */
+.demo-anatomy {
+  border: 1px solid var(--app-border);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.85rem;
+}
+
+.demo-anatomy__header,
+.demo-anatomy__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+}
+
+.demo-anatomy__footer {
+  background: var(--ion-color-medium);
+  color: var(--ion-color-medium-contrast);
+}
+
+.demo-anatomy__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 14px;
+  background: var(--app-surface);
+  color: var(--ion-color-dark);
+  min-height: 80px;
+}
+
+.demo-anatomy__header span,
+.demo-anatomy__content span,
+.demo-anatomy__footer span {
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+/* Pila de navegación de ion-nav */
+.demo-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.demo-stack__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--app-border);
+  border-radius: 8px;
+  background: var(--app-surface);
+  font-size: 0.88rem;
+  transition: opacity 0.3s;
+}
+
+.demo-stack__item--active {
+  border-color: var(--ion-color-primary);
+  background: color-mix(in srgb, var(--ion-color-primary) 8%, var(--app-surface));
+}
+
+.demo-stack__item ion-badge {
+  margin-left: auto;
+}
+
+/* Diagrama visual de safe area */
+.demo-safe-area-diagram {
+  border: 2px dashed var(--ion-color-warning);
+  border-radius: 16px;
+  overflow: hidden;
+  font-size: 0.8rem;
+}
+
+.demo-safe-area-diagram__top,
+.demo-safe-area-diagram__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: color-mix(in srgb, var(--ion-color-warning) 15%, transparent);
+  color: var(--ion-text-color);
+  gap: 8px;
+}
+
+.demo-safe-area-diagram__sides {
+  display: flex;
+  min-height: 80px;
+}
+
+.demo-safe-area-diagram__left,
+.demo-safe-area-diagram__right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  background: color-mix(in srgb, var(--ion-color-warning) 10%, transparent);
+  color: var(--ion-color-medium);
+}
+
+.demo-safe-area-diagram__content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--app-surface);
+  border-left: 2px dashed var(--ion-color-warning);
+  border-right: 2px dashed var(--ion-color-warning);
+}
+
 /* ---- Footer ---- */
 .app-footer {
   display: flex;
