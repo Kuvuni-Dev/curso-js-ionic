@@ -51,12 +51,12 @@ const CATEGORIES = [
     color: 'primary',
     icon: 'hand-left-outline',
     components: [
-      { id: 'ion-button', label: 'ion-button',      icon: 'hand-left-outline',      description: 'Botones con variantes de color, relleno, tamaño e iconos.' },
-      { id: null,         label: 'ion-fab',          icon: 'add-circle-outline',     description: 'Contenedor del botón de acción flotante.' },
-      { id: null,         label: 'ion-fab-button',   icon: 'add-outline',            description: 'Botón circular flotante (FAB).' },
-      { id: null,         label: 'ion-fab-list',     icon: 'list-circle-outline',    description: 'Lista de acciones secundarias que se despliegan desde el FAB.' },
-      { id: null,         label: 'ion-back-button',  icon: 'arrow-back-outline',     description: 'Botón de retroceso con icono adaptado a la plataforma.' },
-      { id: null,         label: 'ion-action-sheet', icon: 'apps-outline',           description: 'Hoja de acciones deslizable desde la parte inferior.' },
+      { id: 'ion-button',       label: 'ion-button',      icon: 'hand-left-outline',      description: 'Botones con variantes de color, relleno, tamaño e iconos.' },
+      { id: 'ion-fab',          label: 'ion-fab',          icon: 'add-circle-outline',     description: 'Contenedor del botón de acción flotante (FAB).' },
+      { id: 'ion-fab',          label: 'ion-fab-button',   icon: 'add-outline',            description: 'Botón circular flotante. Ver demo de ion-fab.' },
+      { id: 'ion-fab',          label: 'ion-fab-list',     icon: 'list-circle-outline',    description: 'Acciones secundarias que se despliegan desde el FAB. Ver demo de ion-fab.' },
+      { id: 'ion-back-button',  label: 'ion-back-button',  icon: 'arrow-back-outline',     description: 'Botón de retroceso con icono adaptado a la plataforma (iOS/MD).' },
+      { id: 'ion-action-sheet', label: 'ion-action-sheet', icon: 'apps-outline',           description: 'Hoja de acciones deslizable desde la parte inferior.' },
     ],
   },
   {
