@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "id": "intro-curso",
+      "title": "Introduccion al curso",
+      "path": "content/md/intro-curso.md",
+      "tags": ["introduccion", "plan"]
+    },
+    {
+      "id": "ionic-componentes",
+      "title": "Guia de componentes Ionic",
+      "path": "content/md/ionic-componentes.md",
+      "tags": ["ionic", "componentes"]
+    }
+  ]
+}
