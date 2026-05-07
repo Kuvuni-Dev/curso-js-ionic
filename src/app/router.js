@@ -17,7 +17,9 @@ export function navigateTo(view, param = '') {
 
 export function onRouteChange() {
   const { view, param } = getRoute();
-  const renderer = _routes[view] || renderNotFound;
+  // Si la vista es 'ionic' y hay parámetro, cargamos el demo del componente
+  const routeKey = view === 'ionic' && param ? 'ionic-component' : view;
+  const renderer = _routes[routeKey] || renderNotFound;
   updateTopNav(view);
   renderer(param);
 }

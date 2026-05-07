@@ -1,45 +1,241 @@
-import { appRoot } from '../../shared/dom.js';
+/**
+ * @file ionic.view.js
+ * @description Catálogo principal de componentes Ionic.
+ *
+ * Muestra una lista de componentes disponibles. Al pulsar uno,
+ * navega a #/ionic/:nombre y carga su demo individual.
+ */
 
+import { appRoot } from '../../shared/dom.js';
+import { navigateTo } from '../../app/router.js';
+
+/**
+ * Catálogo de componentes agrupado por categorías.
+ *
+ * Cada categoría tiene:
+ *  - label:      nombre de la sección
+ *  - color:      color del chip de cabecera (tokens Ionic)
+ *  - icon:       icono representativo de la categoría
+ *  - components: lista de componentes
+ *
+ * Cada componente tiene:
+ *  - id:         nombre usado en la ruta (#/ionic/:id). null = sin demo todavía.
+ *  - label:      nombre visible
+ *  - icon:       ion-icon
+ *  - description descripción breve
+ */
+const CATEGORIES = [
+  {
+    label: 'Estructura',
+    color: 'tertiary',
+    icon: 'layers-outline',
+    components: [
+      { id: null, label: 'ion-app',           icon: 'phone-portrait-outline',  description: 'Elemento raíz que envuelve toda la aplicación.' },
+      { id: null, label: 'ion-page',          icon: 'document-outline',        description: 'Contenedor de cada pantalla de la app.' },
+      { id: null, label: 'ion-router',        icon: 'git-branch-outline',      description: 'Router declarativo para apps Ionic/Angular.' },
+      { id: null, label: 'ion-router-outlet', icon: 'swap-horizontal-outline', description: 'Punto de montaje donde se inyectan las páginas.' },
+      { id: null, label: 'ion-nav',           icon: 'navigate-outline',        description: 'Pila de navegación programática (push/pop).' },
+      { id: null, label: 'ion-split-pane',    icon: 'tablet-landscape-outline', description: 'Layout de dos columnas para pantallas anchas (tablet/escritorio).' },
+      { id: null, label: 'ion-header',        icon: 'albums-outline',          description: 'Cabecera fija de una página.' },
+      { id: null, label: 'ion-toolbar',       icon: 'menu-outline',            description: 'Barra dentro del header o footer.' },
+      { id: null, label: 'ion-title',         icon: 'text-outline',            description: 'Título centrado dentro de ion-toolbar.' },
+      { id: null, label: 'ion-buttons',       icon: 'ellipsis-horizontal-outline', description: 'Agrupa botones dentro de la toolbar (slot start/end).' },
+      { id: null, label: 'ion-footer',        icon: 'remove-outline',          description: 'Pie fijo de una página.' },
+      { id: null, label: 'ion-content',       icon: 'reader-outline',          description: 'Área de desplazamiento del contenido principal.' },
+    ],
+  },
+  {
+    label: 'Botones y acciones',
+    color: 'primary',
+    icon: 'hand-left-outline',
+    components: [
+      { id: 'ion-button', label: 'ion-button',      icon: 'hand-left-outline',      description: 'Botones con variantes de color, relleno, tamaño e iconos.' },
+      { id: null,         label: 'ion-fab',          icon: 'add-circle-outline',     description: 'Contenedor del botón de acción flotante.' },
+      { id: null,         label: 'ion-fab-button',   icon: 'add-outline',            description: 'Botón circular flotante (FAB).' },
+      { id: null,         label: 'ion-fab-list',     icon: 'list-circle-outline',    description: 'Lista de acciones secundarias que se despliegan desde el FAB.' },
+      { id: null,         label: 'ion-back-button',  icon: 'arrow-back-outline',     description: 'Botón de retroceso con icono adaptado a la plataforma.' },
+      { id: null,         label: 'ion-action-sheet', icon: 'apps-outline',           description: 'Hoja de acciones deslizable desde la parte inferior.' },
+    ],
+  },
+  {
+    label: 'Formularios',
+    color: 'success',
+    icon: 'create-outline',
+    components: [
+      { id: 'ion-input',   label: 'ion-input',         icon: 'create-outline',             description: 'Campo de texto con tipos, posiciones de label y eventos.' },
+      { id: 'ion-toggle',  label: 'ion-toggle',        icon: 'toggle-outline',             description: 'Interruptor on/off con evento ionChange.' },
+      { id: null,          label: 'ion-checkbox',      icon: 'checkbox-outline',           description: 'Casilla de verificación.' },
+      { id: null,          label: 'ion-radio',         icon: 'radio-button-on-outline',    description: 'Opción única dentro de un grupo de radio.' },
+      { id: null,          label: 'ion-radio-group',   icon: 'ellipse-outline',            description: 'Agrupa varios ion-radio para selección exclusiva.' },
+      { id: null,          label: 'ion-select',        icon: 'chevron-down-outline',       description: 'Selector desplegable o de acción.' },
+      { id: null,          label: 'ion-select-option', icon: 'list-outline',               description: 'Opción individual dentro de un ion-select.' },
+      { id: null,          label: 'ion-textarea',      icon: 'document-text-outline',      description: 'Área de texto multilínea.' },
+      { id: null,          label: 'ion-range',         icon: 'options-outline',            description: 'Control deslizante de rango de valores.' },
+      { id: null,          label: 'ion-searchbar',     icon: 'search-outline',             description: 'Barra de búsqueda con filtrado en tiempo real.' },
+      { id: null,          label: 'ion-datetime',      icon: 'calendar-outline',           description: 'Selector de fecha y hora con formato nativo.' },
+      { id: null,          label: 'ion-datetime-button', icon: 'time-outline',             description: 'Botón que abre un ion-datetime en modal o popover.' },
+      { id: null,          label: 'ion-picker',        icon: 'filter-outline',             description: 'Ruleta de selección al estilo nativo iOS/Android.' },
+    ],
+  },
+  {
+    label: 'Layout y contenido',
+    color: 'warning',
+    icon: 'grid-outline',
+    components: [
+      { id: 'ion-card',  label: 'ion-card',            icon: 'card-outline',           description: 'Contenedor visual con cabecera, cuerpo e imágenes.' },
+      { id: 'ion-list',  label: 'ion-list / ion-item',  icon: 'list-outline',           description: 'Listas con iconos, badges, notas e items clicables.' },
+      { id: null,        label: 'ion-item-divider',    icon: 'remove-circle-outline',  description: 'Separador visual con etiqueta dentro de una lista.' },
+      { id: null,        label: 'ion-item-group',      icon: 'folder-open-outline',    description: 'Agrupa items con un divider de cabecera.' },
+      { id: null,        label: 'ion-grid',            icon: 'grid-outline',           description: 'Sistema de rejilla responsive de 12 columnas.' },
+      { id: null,        label: 'ion-row',             icon: 'reorder-two-outline',    description: 'Fila horizontal dentro de ion-grid.' },
+      { id: null,        label: 'ion-col',             icon: 'stop-outline',           description: 'Columna dentro de ion-row, con tamaños breakpoint.' },
+      { id: null,        label: 'ion-accordion',       icon: 'chevron-down-circle-outline', description: 'Elemento expandible/colapsable.' },
+      { id: null,        label: 'ion-accordion-group', icon: 'layers-outline',         description: 'Agrupa acordeones con control de apertura única o múltiple.' },
+      { id: null,        label: 'ion-chip',            icon: 'pricetag-outline',       description: 'Etiqueta compacta con texto e icono opcionales.' },
+      { id: null,        label: 'ion-badge',           icon: 'ellipse-outline',        description: 'Contador o indicador numérico.' },
+      { id: null,        label: 'ion-note',            icon: 'information-circle-outline', description: 'Texto secundario pequeño dentro de un item.' },
+      { id: null,        label: 'ion-text',            icon: 'text-outline',           description: 'Aplica color de la paleta Ionic a texto en línea.' },
+      { id: null,        label: 'ion-label',           icon: 'tag-outline',            description: 'Etiqueta de texto asociada a controles de formulario.' },
+      { id: null,        label: 'ion-avatar',          icon: 'person-circle-outline',  description: 'Imagen de perfil circular.' },
+      { id: null,        label: 'ion-thumbnail',       icon: 'image-outline',          description: 'Miniatura cuadrada de imagen.' },
+      { id: null,        label: 'ion-img',             icon: 'image-outline',          description: 'Imagen con lazy loading nativo de Ionic.' },
+      { id: null,        label: 'ion-icon',            icon: 'star-outline',           description: 'Icono vectorial de la librería Ionicons.' },
+      { id: null,        label: 'ion-progress-bar',    icon: 'stats-chart-outline',    description: 'Barra de progreso determinada o indeterminada.' },
+    ],
+  },
+  {
+    label: 'Interacción y scroll',
+    color: 'medium',
+    icon: 'finger-print-outline',
+    components: [
+      { id: null, label: 'ion-item-sliding',   icon: 'swap-horizontal-outline', description: 'Item con acciones ocultas que se revelan al deslizar.' },
+      { id: null, label: 'ion-item-options',   icon: 'ellipsis-horizontal-outline', description: 'Contenedor de las acciones deslizables de un item.' },
+      { id: null, label: 'ion-item-option',    icon: 'hand-right-outline',      description: 'Botón individual dentro de ion-item-options.' },
+      { id: null, label: 'ion-reorder',        icon: 'reorder-three-outline',   description: 'Asa de arrastre para reordenar items en una lista.' },
+      { id: null, label: 'ion-reorder-group',  icon: 'move-outline',            description: 'Lista reordenable que gestiona el evento ionItemReorder.' },
+      { id: null, label: 'ion-infinite-scroll', icon: 'refresh-outline',        description: 'Carga más contenido al llegar al final de la lista.' },
+      { id: null, label: 'ion-refresher',      icon: 'arrow-down-outline',      description: 'Gesto pull-to-refresh para recargar contenido.' },
+    ],
+  },
+  {
+    label: 'Navegación',
+    color: 'secondary',
+    icon: 'navigate-outline',
+    components: [
+      { id: null, label: 'ion-tabs',        icon: 'tab-bar-outline',              description: 'Contenedor del sistema de pestañas.' },
+      { id: null, label: 'ion-tab-bar',     icon: 'reorder-four-outline',         description: 'Barra inferior con los botones de pestaña.' },
+      { id: null, label: 'ion-tab-button',  icon: 'apps-outline',                 description: 'Botón individual dentro de la tab bar.' },
+      { id: null, label: 'ion-segment',     icon: 'git-commit-outline',           description: 'Selector de opciones en línea (como pestañas superiores).' },
+      { id: null, label: 'ion-segment-button', icon: 'radio-button-on-outline',   description: 'Opción individual dentro de un ion-segment.' },
+      { id: null, label: 'ion-breadcrumb',  icon: 'return-up-forward-outline',    description: 'Ruta de migas de pan para orientación en profundidad.' },
+      { id: null, label: 'ion-breadcrumbs', icon: 'git-merge-outline',            description: 'Contenedor de ion-breadcrumb con desbordamiento configurable.' },
+      { id: null, label: 'ion-menu',        icon: 'menu-outline',                 description: 'Menú lateral deslizable (drawer).' },
+      { id: null, label: 'ion-menu-button', icon: 'menu-sharp',                   description: 'Botón que abre/cierra el ion-menu.' },
+    ],
+  },
+  {
+    label: 'Feedback y overlays',
+    color: 'danger',
+    icon: 'chatbubble-ellipses-outline',
+    components: [
+      { id: null, label: 'ion-alert',         icon: 'alert-circle-outline',    description: 'Cuadro de diálogo modal con botones.' },
+      { id: null, label: 'ion-toast',         icon: 'notifications-outline',   description: 'Notificación temporal no bloqueante.' },
+      { id: null, label: 'ion-loading',       icon: 'hourglass-outline',       description: 'Indicador de carga con overlay.' },
+      { id: null, label: 'ion-modal',         icon: 'browsers-outline',        description: 'Ventana modal que cubre la pantalla.' },
+      { id: null, label: 'ion-popover',       icon: 'chatbox-outline',         description: 'Capa flotante anclada a un elemento.' },
+      { id: null, label: 'ion-spinner',       icon: 'sync-outline',            description: 'Animación de carga con varios estilos.' },
+      { id: null, label: 'ion-skeleton-text', icon: 'text-outline',            description: 'Placeholder animado mientras carga el contenido.' },
+      { id: null, label: 'ion-progress-bar',  icon: 'stats-chart-outline',     description: 'Barra de progreso determinada o indeterminada (también en Layout).' },
+    ],
+  },
+];
+
+/**
+ * Renderiza el catálogo agrupado por categorías.
+ * Los componentes con demo son clicables; los demás muestran "Próximamente".
+ */
 export function renderIonicSection() {
+  const categoriesHtml = CATEGORIES.map((cat) => {
+    const itemsHtml = cat.components.map((c) => {
+      const hasDemo = c.id !== null;
+      return `
+        <ion-item
+          ${hasDemo ? `button="true" detail="true" data-component-id="${c.id}"` : ''}
+          ${hasDemo ? '' : 'disabled="true"'}
+        >
+          <ion-icon slot="start" name="${c.icon}" color="${hasDemo ? cat.color : 'medium'}"></ion-icon>
+          <ion-label>
+            <h3>${c.label}</h3>
+            <p>${c.description}</p>
+          </ion-label>
+          ${hasDemo ? '' : '<ion-badge slot="end" color="medium">Próximamente</ion-badge>'}
+        </ion-item>
+      `;
+    }).join('');
+
+    return `
+      <div class="catalog-category">
+        <div class="catalog-category-header">
+          <ion-chip color="${cat.color}" style="pointer-events:none;">
+            <ion-icon name="${cat.icon}"></ion-icon>
+            <ion-label>${cat.label}</ion-label>
+          </ion-chip>
+        </div>
+        <ion-list inset="true">
+          ${itemsHtml}
+        </ion-list>
+      </div>
+    `;
+  }).join('');
+
   appRoot.innerHTML = `
     <section class="page">
       <h2>Catálogo de componentes Ionic</h2>
-
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Botones</ion-card-title>
-        </ion-card-header>
-        <ion-card-content class="component-row">
-          <ion-button>Default</ion-button>
-          <ion-button color="secondary">Secondary</ion-button>
-          <ion-button fill="outline">Outline</ion-button>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Input</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-item>
-            <ion-label position="stacked">Tu nombre</ion-label>
-            <ion-input placeholder="Escribe aquí"></ion-input>
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Lista</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-list>
-            <ion-item><ion-label>ion-button</ion-label></ion-item>
-            <ion-item><ion-label>ion-input</ion-label></ion-item>
-            <ion-item><ion-label>ion-card</ion-label></ion-item>
-          </ion-list>
-        </ion-card-content>
-      </ion-card>
+      <p style="margin-bottom:20px;">
+        Selecciona un componente para ver su demo interactivo y código de ejemplo.
+        Los marcados como <em>Próximamente</em> se irán añadiendo a lo largo del curso.
+      </p>
+      ${categoriesHtml}
     </section>
   `;
+
+  // Adjuntar navegación solo a los items con demo
+  appRoot.querySelectorAll('[data-component-id]').forEach((el) => {
+    el.addEventListener('click', () => {
+      navigateTo('ionic', el.getAttribute('data-component-id'));
+    });
+  });
 }
+
+/**
+ * Carga y renderiza el demo de un componente específico.
+ * Importa dinámicamente el archivo *.demo.js correspondiente.
+ *
+ * @param {string} componentId - El id del componente (ej: 'ion-button')
+ */
+export async function renderIonicComponent(componentId) {
+  appRoot.innerHTML = `<section class="page"><ion-spinner name="crescent"></ion-spinner></section>`;
+
+  try {
+    // import() dinámico: carga solo el módulo que se necesita en ese momento.
+    // Esto evita cargar todos los demos al inicio de la app.
+    const module = await import(`./components/${componentId}.demo.js`);
+
+    // Cada demo exporta render() e init()
+    appRoot.innerHTML = module.render();
+
+    // init() conecta los listeners interactivos una vez que el HTML está en el DOM
+    module.init(appRoot);
+  } catch {
+    appRoot.innerHTML = `
+      <section class="page">
+        <ion-button fill="clear" onclick="location.hash='#/ionic'">
+          <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+          Volver al catálogo
+        </ion-button>
+        <p><ion-text color="danger">Componente no encontrado: <code>${componentId}</code></ion-text></p>
+      </section>
+    `;
+  }
+}
+

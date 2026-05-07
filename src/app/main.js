@@ -2,13 +2,15 @@ import { initRouter, navigateTo, onRouteChange } from './router.js';
 import { initTheme } from './theme.js';
 import { renderHome } from '../modules/home/home.view.js';
 import { renderJsSection } from '../modules/js/js.view.js';
-import { renderIonicSection } from '../modules/ionic/ionic.view.js';
+import { renderIonicSection, renderIonicComponent } from '../modules/ionic/ionic.view.js';
 import { renderDocsIndex, renderDocView } from '../modules/content/content.view.js';
 
 const routes = {
   home: renderHome,
   js: renderJsSection,
   ionic: renderIonicSection,
+  // 'ionic' con parámetro carga el demo individual del componente
+  'ionic-component': renderIonicComponent,
   docs: renderDocsIndex,
   doc: renderDocView,
 };

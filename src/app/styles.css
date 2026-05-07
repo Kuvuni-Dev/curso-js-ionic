@@ -107,6 +107,84 @@ ion-segment-button::part(indicator-background) {
   color: var(--ion-text-color, #e2e8f0) !important;
 }
 
+/* ---- Catálogo de componentes por categoría ---- */
+.catalog-category {
+  margin-bottom: 28px;
+}
+
+.catalog-category-header {
+  padding: 0 16px 6px;
+}
+
+/* ---- Páginas de demo de componentes ---- */
+.demo-page {
+  padding-bottom: 32px;
+}
+
+.demo-header {
+  margin-bottom: 16px;
+}
+
+.demo-header h2 {
+  margin: 4px 0 6px;
+  font-size: 1.6rem;
+  color: var(--app-accent);
+}
+
+.demo-desc {
+  color: var(--ion-color-medium);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Cada bloque temático dentro del demo */
+.demo-group {
+  margin-bottom: 24px;
+}
+
+.demo-group-title {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--app-accent-alt);
+  border-bottom: 2px solid var(--app-border);
+  padding-bottom: 4px;
+}
+
+.demo-group-desc {
+  font-size: 0.88rem;
+  color: var(--ion-color-medium);
+  margin: 0 0 10px;
+}
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.demo-row--align-center {
+  align-items: center;
+}
+
+/* Bloque de código fuente */
+.demo-code {
+  background: var(--app-code-bg);
+  border: 1px solid var(--app-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.demo-code code {
+  font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+  color: var(--app-text);
+}
+
 /* ---- Footer ---- */
 .app-footer {
   display: flex;

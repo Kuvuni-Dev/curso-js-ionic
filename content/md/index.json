@@ -8,6 +8,13 @@
       "tags": ["introducción", "plan"]
     },
     {
+      "id": "prompts-proyecto",
+      "title": "Historial de prompts del proyecto",
+      "path": "content/md/general/prompts-proyecto.md",
+      "category": "general",
+      "tags": ["prompts", "ia", "desarrollo", "historial"]
+    },
+    {
       "id": "js-closures",
       "title": "Closures",
       "path": "content/md/javascript/js-closures.md",
