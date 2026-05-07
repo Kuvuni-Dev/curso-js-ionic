@@ -671,6 +671,303 @@ ion-segment-button::part(indicator-background) {
   background: color-mix(in srgb, var(--ion-color-light) 60%, transparent);
 }
 
+/* ── Demo ion-grid: preview visual ───────────────────────────────────── */
+.demo-grid-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.demo-grid-row {
+  display: flex;
+  width: 100%;
+  gap: 4px;
+}
+
+.demo-grid-col {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.demo-grid-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 6px 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.demo-grid-cell--warning {
+  background: color-mix(in srgb, var(--ion-color-warning) 25%, var(--app-surface));
+  border: 1px solid var(--ion-color-warning);
+  color: var(--ion-text-color);
+}
+
+/* ── Demo ion-accordion ──────────────────────────────────────────────── */
+.demo-accordion {
+  border: 1px solid var(--ion-color-light);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.demo-accordion__item {
+  border-top: 1px solid var(--ion-color-light);
+}
+
+.demo-accordion__item:first-child { border-top: none; }
+
+.demo-accordion__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--ion-color-light) 30%, var(--app-surface));
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.95rem;
+  color: var(--ion-text-color);
+  transition: background 0.15s;
+}
+
+.demo-accordion__header:hover {
+  background: color-mix(in srgb, var(--ion-color-light) 50%, var(--app-surface));
+}
+
+.demo-accordion__arrow {
+  margin-left: auto;
+  transition: transform 0.25s ease;
+  font-size: 1.1rem;
+}
+
+.demo-accordion__item--open .demo-accordion__arrow {
+  transform: rotate(180deg);
+}
+
+.demo-accordion__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.28s ease, padding 0.28s ease;
+  padding: 0 16px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ion-color-medium);
+}
+
+.demo-accordion__item--open .demo-accordion__content {
+  max-height: 200px;
+  padding: 12px 16px;
+}
+
+/* ── Demo ion-avatar ─────────────────────────────────────────────────── */
+.demo-avatar {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.demo-avatar-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.demo-avatar-status {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--app-surface);
+  background: var(--ion-color-medium);
+}
+
+.demo-avatar-status--online { background: var(--ion-color-success); }
+
+.demo-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid var(--ion-color-light);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.demo-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--ion-color-light);
+}
+
+.demo-contact-item:first-child { border-top: none; }
+
+.demo-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-size: 0.9rem;
+}
+
+.demo-contact-info small { font-size: 0.78rem; opacity: 0.6; }
+
+/* Thumbnails */
+.demo-thumbnail {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.demo-product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid var(--ion-color-light);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.demo-thumbnail-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  border-top: 1px solid var(--ion-color-light);
+}
+
+.demo-thumbnail-item:first-child { border-top: none; }
+
+.demo-thumbnail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.9rem;
+}
+
+.demo-thumbnail-info small { font-size: 0.78rem; opacity: 0.6; }
+
+/* ── Demo ion-icon: browser ─────────────────────────────────────────── */
+.demo-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.demo-icon-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 4px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+  font-size: 1.6rem;
+}
+
+.demo-icon-cell span {
+  font-size: 0.6rem;
+  opacity: 0.6;
+  text-align: center;
+  word-break: break-all;
+}
+
+.demo-icon-cell:hover {
+  background: color-mix(in srgb, var(--ion-color-warning) 12%, transparent);
+  border-color: var(--ion-color-warning);
+}
+
+.demo-icon-cell--selected {
+  background: color-mix(in srgb, var(--ion-color-warning) 20%, transparent);
+  border-color: var(--ion-color-warning);
+}
+
+.demo-icon-inspector {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: color-mix(in srgb, var(--ion-color-warning) 10%, var(--app-surface));
+  border: 1px solid var(--ion-color-warning);
+  border-radius: 10px;
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+/* ── Demo ion-progress-bar ──────────────────────────────────────────── */
+.demo-pb-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.demo-pb-track {
+  flex: 1;
+  height: 6px;
+  background: color-mix(in srgb, var(--ion-color-primary) 15%, transparent);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.demo-pb-track--tall { height: 10px; border-radius: 5px; }
+
+.demo-pb-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.demo-pb-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  min-width: 44px;
+  text-align: right;
+  opacity: 0.7;
+}
+
+/* Animación indeterminate */
+.demo-pb-track--indeterminate { background: color-mix(in srgb, var(--ion-color-warning) 15%, transparent); }
+
+.demo-pb-indeterminate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  background: var(--ion-color-warning);
+  border-radius: 4px;
+  animation: pb-indeterminate 1.4s cubic-bezier(.65,.05,.35,.95) infinite;
+}
+
+@keyframes pb-indeterminate {
+  0%   { left: -40%; width: 40%; }
+  50%  { left: 30%;  width: 50%; }
+  100% { left: 110%; width: 40%; }
+}
+
 /* ---- Footer ---- */
 .app-footer {
   display: flex;
