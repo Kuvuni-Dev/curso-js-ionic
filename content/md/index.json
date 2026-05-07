@@ -2,15 +2,39 @@
   "items": [
     {
       "id": "intro-curso",
-      "title": "Introduccion al curso",
-      "path": "content/md/intro-curso.md",
-      "tags": ["introduccion", "plan"]
+      "title": "Introducción al curso",
+      "path": "content/md/general/intro-curso.md",
+      "category": "general",
+      "tags": ["introducción", "plan"]
+    },
+    {
+      "id": "js-closures",
+      "title": "Closures",
+      "path": "content/md/javascript/js-closures.md",
+      "category": "javascript",
+      "tags": ["closures", "scope"]
+    },
+    {
+      "id": "js-asincronia",
+      "title": "Programación asíncrona",
+      "path": "content/md/javascript/js-asincronia.md",
+      "category": "javascript",
+      "tags": ["async", "await", "promises"]
     },
     {
       "id": "ionic-componentes",
-      "title": "Guia de componentes Ionic",
-      "path": "content/md/ionic-componentes.md",
+      "title": "Guía de componentes Ionic",
+      "path": "content/md/ionic/ionic-componentes.md",
+      "category": "ionic",
       "tags": ["ionic", "componentes"]
+    },
+    {
+      "id": "ionic-navegacion",
+      "title": "Navegación en Ionic",
+      "path": "content/md/ionic/ionic-navegacion.md",
+      "category": "ionic",
+      "tags": ["ionic", "router", "navegación"]
     }
   ]
 }
+

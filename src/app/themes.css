@@ -1,0 +1,160 @@
+/* =====================================================
+   PALETA DE COLORES — Curso JS Avanzado + Ionic
+   Tono: didactico, fresco, con energia y claridad
+   ===================================================== */
+
+/* ----- MODO CLARO (por defecto) ----- */
+:root {
+
+  /* Ionic palette override */
+  --ion-color-primary:         #5e60ce;
+  --ion-color-primary-rgb:     94, 96, 206;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade:   #5254b5;
+  --ion-color-primary-tint:    #6e70d3;
+
+  --ion-color-secondary:       #48cae4;
+  --ion-color-secondary-rgb:   72, 202, 228;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-shade: #3fb2c9;
+  --ion-color-secondary-tint:  #5acfe7;
+
+  --ion-color-tertiary:        #f72585;
+  --ion-color-tertiary-rgb:    247, 37, 133;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-shade:  #d92075;
+  --ion-color-tertiary-tint:   #f83b91;
+
+  --ion-color-success:         #06d6a0;
+  --ion-color-success-rgb:     6, 214, 160;
+  --ion-color-success-contrast: #000000;
+  --ion-color-success-shade:   #05bc8d;
+  --ion-color-success-tint:    #1fdaaa;
+
+  --ion-color-warning:         #ffd166;
+  --ion-color-warning-rgb:     255, 209, 102;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-shade:   #e0b85a;
+  --ion-color-warning-tint:    #ffd675;
+
+  --ion-color-danger:          #ef233c;
+  --ion-color-danger-rgb:      239, 35, 60;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-shade:    #d21f35;
+  --ion-color-danger-tint:     #f13950;
+
+  --ion-color-medium:          #8d99ae;
+  --ion-color-medium-rgb:      141, 153, 174;
+  --ion-color-medium-contrast: #000000;
+  --ion-color-medium-shade:    #7c8799;
+  --ion-color-medium-tint:     #98a3b0;
+
+  --ion-color-light:           #f0f4ff;
+  --ion-color-light-rgb:       240, 244, 255;
+  --ion-color-light-contrast:  #1f2d3d;
+  --ion-color-light-shade:     #d3d8e3;
+  --ion-color-light-tint:      #f2f5ff;
+
+  /* Fondo de la app */
+  --ion-background-color:      #f0f4ff;
+  --ion-background-color-rgb:  240, 244, 255;
+
+  /* Texto */
+  --ion-text-color:            #1f2d3d;
+  --ion-text-color-rgb:        31, 45, 61;
+
+  /* Toolbar */
+  --ion-toolbar-background:    #5e60ce;
+  --ion-toolbar-color:         #ffffff;
+
+  /* Cards y items */
+  --ion-card-background:       #ffffff;
+  --ion-item-background:       #ffffff;
+
+  /* Variables propias */
+  --app-bg: linear-gradient(135deg, #e0e7ff 0%, #f0fdf4 50%, #fdf4ff 100%);
+  --app-text:   #1f2d3d;
+  --app-accent: #5e60ce;
+  --app-accent-alt: #f72585;
+  --app-surface: rgba(255, 255, 255, 0.88);
+  --app-border:  rgba(94, 96, 206, 0.15);
+  --app-code-bg: #eef0fb;
+}
+
+/* ----- MODO OSCURO ----- */
+.ion-palette-dark {
+
+  /* Ionic palette override */
+  --ion-color-primary:         #818cf8;
+  --ion-color-primary-rgb:     129, 140, 248;
+  --ion-color-primary-contrast: #000000;
+  --ion-color-primary-shade:   #7179db;
+  --ion-color-primary-tint:    #8e98f9;
+
+  --ion-color-secondary:       #67e8f9;
+  --ion-color-secondary-rgb:   103, 232, 249;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-shade: #5cccdb;
+  --ion-color-secondary-tint:  #76eafa;
+
+  --ion-color-tertiary:        #f9a8d4;
+  --ion-color-tertiary-rgb:    249, 168, 212;
+  --ion-color-tertiary-contrast: #000000;
+  --ion-color-tertiary-shade:  #db93bb;
+  --ion-color-tertiary-tint:   #fab1d8;
+
+  --ion-color-success:         #6ee7b7;
+  --ion-color-success-rgb:     110, 231, 183;
+  --ion-color-success-contrast: #000000;
+  --ion-color-success-shade:   #61cba1;
+  --ion-color-success-tint:    #7deabe;
+
+  --ion-color-warning:         #fde68a;
+  --ion-color-warning-rgb:     253, 230, 138;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-shade:   #dfcb7a;
+  --ion-color-warning-tint:    #fde996;
+
+  --ion-color-danger:          #fca5a5;
+  --ion-color-danger-rgb:      252, 165, 165;
+  --ion-color-danger-contrast: #000000;
+  --ion-color-danger-shade:    #de9191;
+  --ion-color-danger-tint:     #fcaeae;
+
+  --ion-color-medium:          #6b7280;
+  --ion-color-medium-rgb:      107, 114, 128;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-shade:    #5e6370;
+  --ion-color-medium-tint:     #7a8089;
+
+  --ion-color-light:           #1e293b;
+  --ion-color-light-rgb:       30, 41, 59;
+  --ion-color-light-contrast:  #e2e8f0;
+  --ion-color-light-shade:     #1a2433;
+  --ion-color-light-tint:      #253448;
+
+  /* Fondo de la app */
+  --ion-background-color:      #0f172a;
+  --ion-background-color-rgb:  15, 23, 42;
+
+  /* Texto */
+  --ion-text-color:            #e2e8f0;
+  --ion-text-color-rgb:        226, 232, 240;
+
+  /* Toolbar */
+  --ion-toolbar-background:    #1e1b4b;
+  --ion-toolbar-color:         #e2e8f0;
+
+  /* Cards y items */
+  --ion-card-background:       #1e293b;
+  --ion-item-background:       #1e293b;
+
+  /* Variables propias */
+  --app-bg: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #1a0a2e 100%);
+  --app-text:   #e2e8f0;
+  --app-accent: #818cf8;
+  --app-accent-alt: #f9a8d4;
+  --app-surface: rgba(30, 41, 59, 0.90);
+  --app-border:  rgba(129, 140, 248, 0.20);
+  --app-code-bg: #1e293b;
+}

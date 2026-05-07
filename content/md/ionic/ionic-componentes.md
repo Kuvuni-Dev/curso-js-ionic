@@ -1,4 +1,4 @@
-# Guia de componentes Ionic
+# Guía de componentes Ionic
 
 Componentes sugeridos para el catalogo inicial:
 

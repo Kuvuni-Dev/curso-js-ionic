@@ -1,4 +1,4 @@
-# Introduccion al curso
+# Introducción al curso
 
 Este curso esta dividido en dos bloques:
 
