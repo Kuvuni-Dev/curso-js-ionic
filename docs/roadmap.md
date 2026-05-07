@@ -21,3 +21,4 @@
 ## Fase 5: Capacitor
 - Build web
 - Android
+- iOS

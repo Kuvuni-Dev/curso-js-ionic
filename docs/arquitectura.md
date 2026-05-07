@@ -20,6 +20,12 @@
 ## 5) Plataforma
 - Build web
 - Empaquetado Android con Capacitor
+- Empaquetado iOS con Capacitor
+- Carpeta assets/android/icons para recursos de iconos Android
+- Carpeta assets/ios/icons y assets/ios/splash para recursos iOS
+
+## Nota de entorno
+- El proyecto se puede desarrollar en Windows, pero para compilar/publicar iOS se requiere macOS con Xcode.
 
 ## Desarrollo local
 - Ionic cargado por CDN en index.html
