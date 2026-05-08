@@ -15,6 +15,48 @@
       "tags": ["prompts", "ia", "desarrollo", "historial"]
     },
     {
+      "id": "guia-del-alumno",
+      "title": "Guía del alumno",
+      "path": "content/md/general/guia-del-alumno.md",
+      "category": "general",
+      "tags": ["guía", "estructura", "flujo"]
+    },
+    {
+      "id": "metodologia",
+      "title": "Metodología del curso",
+      "path": "content/md/general/metodologia.md",
+      "category": "general",
+      "tags": ["metodología", "aprendizaje", "demos"]
+    },
+    {
+      "id": "recursos",
+      "title": "Recursos del curso",
+      "path": "content/md/general/recursos.md",
+      "category": "general",
+      "tags": ["recursos", "herramientas", "referencias"]
+    },
+    {
+      "id": "rutinas-de-ejercicio",
+      "title": "Rutinas de ejercicio",
+      "path": "content/md/general/rutinas-de-ejercicio.md",
+      "category": "general",
+      "tags": ["ejercicios", "práctica", "capstone"]
+    },
+    {
+      "id": "glosario",
+      "title": "Glosario del curso",
+      "path": "content/md/general/glosario.md",
+      "category": "general",
+      "tags": ["glosario", "términos", "referencia"]
+    },
+    {
+      "id": "faq-curso",
+      "title": "FAQ - Preguntas frecuentes",
+      "path": "content/md/general/faq-curso.md",
+      "category": "general",
+      "tags": ["faq", "dudas", "soporte"]
+    },
+    {
       "id": "js-closures",
       "title": "Closures",
       "path": "content/md/javascript/js-closures.md",
@@ -258,6 +300,48 @@
       "path": "content/md/ionic/ionic-navegacion.md",
       "category": "ionic",
       "tags": ["ionic", "router", "navegación"]
+    },
+    {
+      "id": "capacitor-intro",
+      "title": "Introducción a Capacitor",
+      "path": "content/md/ionic/capacitor-intro.md",
+      "category": "ionic",
+      "tags": ["capacitor", "nativo", "ios", "android"]
+    },
+    {
+      "id": "capacitor-config",
+      "title": "Configuración de Capacitor",
+      "path": "content/md/ionic/capacitor-config.md",
+      "category": "ionic",
+      "tags": ["capacitor", "setup", "configuración"]
+    },
+    {
+      "id": "capacitor-plugins",
+      "title": "Plugins de Capacitor",
+      "path": "content/md/ionic/capacitor-plugins.md",
+      "category": "ionic",
+      "tags": ["capacitor", "plugins", "cámara", "geolocalización"]
+    },
+    {
+      "id": "capacitor-deploy",
+      "title": "Compilación y despliegue con Capacitor",
+      "path": "content/md/ionic/capacitor-deploy.md",
+      "category": "ionic",
+      "tags": ["capacitor", "compilación", "app store", "play store"]
+    },
+    {
+      "id": "capacitor-debugging",
+      "title": "Debugging de apps Capacitor",
+      "path": "content/md/ionic/capacitor-debugging.md",
+      "category": "ionic",
+      "tags": ["capacitor", "debugging", "logs", "profiling"]
+    },
+    {
+      "id": "capacitor-ejemplo",
+      "title": "Proyectos Capacitor paso a paso",
+      "path": "content/md/ionic/capacitor-ejemplo.md",
+      "category": "ionic",
+      "tags": ["capacitor", "ejemplo", "proyecto"]
     }
   ]
 }
