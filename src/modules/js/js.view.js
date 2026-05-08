@@ -25,6 +25,7 @@ const CATEGORIES = [
       { id: 'prototype',    label: 'Cadena de prototipos',       icon: 'git-merge-outline',        description: 'Herencia basada en prototipos: [[Prototype]] y Object.create.' },
       { id: 'this-context', label: 'El valor de this',           icon: 'locate-outline',           description: 'Cómo varía this: global, método, arrow y binding explícito.' },
       { id: 'hoisting',     label: 'Hoisting y TDZ',             icon: 'arrow-up-outline',         description: 'Elevación de var, function, let/const y la zona muerta temporal.' },
+      { id: 'regex',        label: 'Expresiones regulares',      icon: 'search-outline',           description: 'Patrones para validar, buscar, extraer y reemplazar texto.' },
     ],
   },
   {

@@ -92,6 +92,13 @@
       "tags": ["hoisting", "let", "const"]
     },
     {
+      "id": "js-regex",
+      "title": "Expresiones regulares",
+      "path": "content/md/javascript/js-regex.md",
+      "category": "javascript",
+      "tags": ["regex", "validación", "búsqueda"]
+    },
+    {
       "id": "js-arrow-functions",
       "title": "Arrow Functions",
       "path": "content/md/javascript/js-arrow-functions.md",
