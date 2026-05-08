@@ -37,8 +37,8 @@ const Serializable = {
 };
 
 const Loggable = {
-  log(msg) { console.log(`[${this.nombre ?? 'obj'}] ${msg}`); },
-  warn(msg) { console.warn(`[${this.nombre ?? 'obj'}] ⚠️ ${msg}`); },
+  log(msg) { console.log(\`[${this.nombre ?? 'obj'}] ${msg}\`); },
+  warn(msg) { console.warn(\`[${this.nombre ?? 'obj'}] ⚠️ ${msg}\`); },
 };
 
 const Validable = {
@@ -56,7 +56,7 @@ class Usuario {
     this.nombre = nombre;
     this.email  = email;
   }
-  saludar() { return `Hola, soy ${this.nombre}`; }
+  saludar() { return \`Hola, soy ${this.nombre}\`; }
 }
 
 // Aplicar mixins con Object.assign sobre el prototipo
@@ -68,7 +68,7 @@ class Admin extends Usuario {
     super(nombre, email);
     this.nivel = nivel;
   }
-  administrar() { return `${this.nombre} administra el sistema (nivel ${this.nivel})`; }
+  administrar() { return \`${this.nombre} administra el sistema (nivel ${this.nivel})\`; }
 }
 Object.assign(Admin.prototype, Serializable, Loggable, Validable);</pre>
 
@@ -82,11 +82,11 @@ Object.assign(Admin.prototype, Serializable, Loggable, Validable);</pre>
 // Solución con composición:
 const puedeVolar = (obj) => ({
   ...obj,
-  volar: () => `${obj.nombre} vuela`,
+  volar: () => \`${obj.nombre} vuela\`,
 });
 const puedeNadar = (obj) => ({
   ...obj,
-  nadar: () => `${obj.nombre} nada`,
+  nadar: () => \`${obj.nombre} nada\`,
 });
 
 const perro = { nombre: 'Rex' };
@@ -101,6 +101,7 @@ perroAnfibio.nadar(); // "Rex nada"
     </section>
   `;
 }
+
 
 export function init(root) {
   // Mixins

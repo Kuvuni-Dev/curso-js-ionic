@@ -35,10 +35,10 @@ export function render() {
     this.nombre = nombre;   // propiedad de instancia
   }
   respirar() {
-    return `${this.nombre} respira`;
+    return \`${this.nombre} respira\`;
   }
   // toString es heredado de Object.prototype — lo sobreescribimos
-  toString() { return `Animal(${this.nombre})`; }
+  toString() { return \`Animal(${this.nombre})\`; }
 }
 
 class Mamifero extends Animal {
@@ -47,7 +47,7 @@ class Mamifero extends Animal {
     this.sangre = 'caliente';
   }
   alimentarCrias() {
-    return `${this.nombre} alimenta a sus crías`;
+    return \`${this.nombre} alimenta a sus crías\`;
   }
 }
 
@@ -56,10 +56,10 @@ class Perro extends Mamifero {
     super(nombre);
     this.raza = raza;
   }
-  ladrar() { return `${this.nombre}: ¡Guau!`; }
+  ladrar() { return \`${this.nombre}: ¡Guau!\`; }
 
   // Override (polimorfismo)
-  toString() { return `Perro(${this.nombre}, ${this.raza})`; }
+  toString() { return \`Perro(${this.nombre}, ${this.raza})\`; }
 }
 
 // Métodos estáticos — no pertenecen a instancias

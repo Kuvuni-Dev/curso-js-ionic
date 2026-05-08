@@ -33,7 +33,7 @@ export function render() {
 class Guest {
   constructor(ip) { this.ip = ip; this.permisos = ['leer']; }
   puedeEditar() { return false; }
-  descripcion()  { return `Invitado desde ${this.ip}`; }
+  descripcion()  { return \`Invitado desde ${this.ip}\`; }
 }
 
 class User {
@@ -43,7 +43,7 @@ class User {
     this.permisos = ['leer', 'escribir', 'comentar'];
   }
   puedeEditar() { return true; }
-  descripcion()  { return `Usuario: ${this.nombre} <${this.email}>`; }
+  descripcion()  { return \`Usuario: ${this.nombre} <${this.email}>\`; }
 }
 
 class Admin extends User {
@@ -52,7 +52,7 @@ class Admin extends User {
     this.departamento = departamento;
     this.permisos = [...this.permisos, 'eliminar', 'gestionar-usuarios'];
   }
-  descripcion() { return `Admin [${this.departamento}]: ${this.nombre}`; }
+  descripcion() { return \`Admin [${this.departamento}]: ${this.nombre}\`; }
 }
 
 // Factory — centraliza la creación
