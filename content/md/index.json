@@ -211,6 +211,48 @@
       "tags": ["ionic", "componentes"]
     },
     {
+      "id": "ionic-estructura",
+      "title": "Estructura de una app Ionic",
+      "path": "content/md/ionic/ionic-estructura.md",
+      "category": "ionic",
+      "tags": ["estructura", "ion-app", "ion-page"]
+    },
+    {
+      "id": "ionic-botones-acciones",
+      "title": "Botones y acciones en Ionic",
+      "path": "content/md/ionic/ionic-botones-acciones.md",
+      "category": "ionic",
+      "tags": ["botones", "action-sheet", "fab"]
+    },
+    {
+      "id": "ionic-formularios",
+      "title": "Formularios en Ionic",
+      "path": "content/md/ionic/ionic-formularios.md",
+      "category": "ionic",
+      "tags": ["formularios", "ion-input", "ion-select"]
+    },
+    {
+      "id": "ionic-layout",
+      "title": "Layout y contenido en Ionic",
+      "path": "content/md/ionic/ionic-layout.md",
+      "category": "ionic",
+      "tags": ["layout", "grid", "cards"]
+    },
+    {
+      "id": "ionic-interaccion-scroll",
+      "title": "Interacción y scroll en Ionic",
+      "path": "content/md/ionic/ionic-interaccion-scroll.md",
+      "category": "ionic",
+      "tags": ["scroll", "interacción", "refresh"]
+    },
+    {
+      "id": "ionic-feedback",
+      "title": "Feedback y overlays en Ionic",
+      "path": "content/md/ionic/ionic-feedback.md",
+      "category": "ionic",
+      "tags": ["alert", "toast", "modal"]
+    },
+    {
       "id": "ionic-navegacion",
       "title": "Navegación en Ionic",
       "path": "content/md/ionic/ionic-navegacion.md",
