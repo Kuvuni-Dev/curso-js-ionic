@@ -61,7 +61,7 @@ export function render() {
   this.nombre = nombre;          // propiedad propia del objeto
 }
 Animal.prototype.respirar = function () {
-  return `${this.nombre} respira`;  // en Animal.prototype
+  return \`${this.nombre} respira\`;  // en Animal.prototype
 };
 
 function Mamifero(nombre, sangre) {
@@ -77,7 +77,7 @@ function Perro(nombre) {
 Perro.prototype = Object.create(Mamifero.prototype);
 Perro.prototype.constructor = Perro;
 Perro.prototype.ladrar = function () {
-  return `${this.nombre}: ¡Guau!`;
+  return \`${this.nombre}: ¡Guau!\`;
 };
 
 const perro = new Perro('Rex');

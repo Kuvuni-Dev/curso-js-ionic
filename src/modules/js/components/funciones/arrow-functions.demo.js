@@ -67,7 +67,7 @@ const saluda = () => 'Hola';</pre>
       <pre class="js-code-panel">// ❌ Métodos de objeto (this no sería el objeto)
 const obj = {
   nombre: 'Ana',
-  saludar: () => `Hola, soy ${this.nombre}`, // this = globalThis
+  saludar: () => \`Hola, soy ${this.nombre}\`, // this = globalThis
 };
 obj.saludar(); // "Hola, soy undefined"
 
