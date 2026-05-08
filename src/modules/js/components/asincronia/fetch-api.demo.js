@@ -57,7 +57,7 @@ export function render() {
 
     // fetch() NO lanza error por 4xx/5xx — debemos comprobarlo
     if (!response.ok) {
-      throw new Error(\`HTTP ${response.status}: ${response.statusText}\`);
+      throw new Error(\`HTTP \${response.status}: \${response.statusText}\`);
     }
 
     const data = await response.json(); // parsear JSON

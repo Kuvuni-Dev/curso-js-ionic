@@ -73,7 +73,7 @@ const CATEGORIES = [
       { id: 'clases',   label: 'Clases y herencia',     icon: 'school-outline',           description: 'class, constructor, extends, super y polimorfismo.' },
       { id: 'privados', label: 'Encapsulación con #',   icon: 'shield-checkmark-outline', description: 'Campos y métodos privados con la sintaxis # de ES2022.' },
       { id: 'mixins',   label: 'Mixins y composición',  icon: 'swap-horizontal-outline',  description: 'Herencia múltiple funcional mediante composición de objetos.' },
-    ],
+   ],
   },
   {
     label: 'Módulos ES',

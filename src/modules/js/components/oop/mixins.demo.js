@@ -37,8 +37,8 @@ const Serializable = {
 };
 
 const Loggable = {
-  log(msg) { console.log(\`[${this.nombre ?? 'obj'}] ${msg}\`); },
-  warn(msg) { console.warn(\`[${this.nombre ?? 'obj'}] ⚠️ ${msg}\`); },
+  log(msg) { console.log(\`[\${this.nombre ?? 'obj'}] \${msg}\`); },
+  warn(msg) { console.warn(\`[\${this.nombre ?? 'obj'}] ⚠️ \${msg}\`); },
 };
 
 const Validable = {
@@ -68,7 +68,7 @@ class Admin extends Usuario {
     super(nombre, email);
     this.nivel = nivel;
   }
-  administrar() { return \`${this.nombre} administra el sistema (nivel ${this.nivel})\`; }
+  administrar() { return \`\${this.nombre} administra el sistema (nivel \${this.nivel})\`; }
 }
 Object.assign(Admin.prototype, Serializable, Loggable, Validable);</pre>
 
@@ -82,11 +82,11 @@ Object.assign(Admin.prototype, Serializable, Loggable, Validable);</pre>
 // Solución con composición:
 const puedeVolar = (obj) => ({
   ...obj,
-  volar: () => \`${obj.nombre} vuela\`,
+  volar: () => \`\${obj.nombre} vuela\`,
 });
 const puedeNadar = (obj) => ({
   ...obj,
-  nadar: () => \`${obj.nombre} nada\`,
+  nadar: () => \`\${obj.nombre} nada\`,
 });
 
 const perro = { nombre: 'Rex' };
@@ -103,7 +103,8 @@ perroAnfibio.nadar(); // "Rex nada"
 }
 
 
-export function init(root) {
+export function init(root) { 
+  
   // Mixins
   const Serializable = {
     serialize()  { return JSON.stringify({ nombre: this.nombre, email: this.email }); },
@@ -202,5 +203,5 @@ export function init(root) {
       <code>ave.volar()</code> → "${ave.volar()}"<br>
       <small>✅ Composición sin herencia. Cada capacidad es independiente y reutilizable.</small>
     `;
-  });
+  }); 
 }

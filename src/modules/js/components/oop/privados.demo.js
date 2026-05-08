@@ -61,7 +61,7 @@ export function render() {
   depositar(importe) {
     if (importe <= 0) throw new Error('El importe debe ser positivo');
     this.#balance += importe;
-    this.#historial.push(\`+${importe}€\`);
+    this.#historial.push(\`+\${importe}€\`);
     return this.#balance;
   }
 
@@ -69,7 +69,7 @@ export function render() {
     if (!this.#validarPin(pin)) throw new Error('PIN incorrecto');
     if (importe > this.#balance) throw new Error('Saldo insuficiente');
     this.#balance -= importe;
-    this.#historial.push(\`-${importe}€\`);
+    this.#historial.push(\`-\${importe}€\`);
     return this.#balance;
   }
 
