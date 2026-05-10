@@ -1,8 +1,8 @@
 /**
  * @file js.view.js
- * @description Catálogo de temas de JavaScript avanzado.
+ * @description Catálogo de temas de JavaScript por niveles.
  *
- * Muestra una lista de temas agrupados por categorías. Al pulsar uno,
+ * Muestra una lista de temas agrupados por nivel. Al pulsar uno,
  * navega a #/js/:id y carga su demo individual.
  */
 
@@ -16,86 +16,46 @@ import { navigateTo } from '../../app/router.js';
  */
 const CATEGORIES = [
   {
-    label: 'Fundamentos avanzados',
-    folder: 'fundamentos',
+    label: 'JS Basico',
+    folder: 'basico',
     color: 'primary',
-    icon: 'code-slash-outline',
+    icon: 'school-outline',
     topics: [
-      { id: 'closure',      label: 'Closures y scope léxico',   icon: 'lock-closed-outline',      description: 'Funciones que recuerdan su entorno léxico de creación.' },
-      { id: 'prototype',    label: 'Cadena de prototipos',       icon: 'git-merge-outline',        description: 'Herencia basada en prototipos: [[Prototype]] y Object.create.' },
-      { id: 'this-context', label: 'El valor de this',           icon: 'locate-outline',           description: 'Cómo varía this: global, método, arrow y binding explícito.' },
-      { id: 'hoisting',     label: 'Hoisting y TDZ',             icon: 'arrow-up-outline',         description: 'Elevación de var, function, let/const y la zona muerta temporal.' },
-      { id: 'regex',        label: 'Expresiones regulares',      icon: 'search-outline',           description: 'Patrones para validar, buscar, extraer y reemplazar texto.' },
+      { id: 'arrow-functions', label: 'Arrow functions',           icon: 'trending-up-outline',      description: 'Sintaxis concisa, this léxico y cuándo NO usarlas.' },
+      { id: 'array-methods',   label: 'Array methods',             icon: 'list-outline',             description: 'map, filter, reduce, find y otros métodos clave para colecciones.' },
+      { id: 'destructuring',   label: 'Destructuring',             icon: 'cut-outline',              description: 'Extraer valores de objetos y arrays con sintaxis clara.' },
+      { id: 'spread-rest',     label: 'Spread y Rest',             icon: 'expand-outline',           description: 'Operador ... para combinar, clonar y recoger argumentos.' },
+      { id: 'promises',        label: 'Promises',                  icon: 'checkmark-circle-outline', description: 'Asincronía basada en estados y encadenamiento.' },
+      { id: 'async-await',     label: 'Async / Await',             icon: 'hourglass-outline',        description: 'Sintaxis más legible para flujo asíncrono con try/catch.' },
+      { id: 'clases',          label: 'Clases y herencia',         icon: 'library-outline',          description: 'Introducción a class, constructor, extends y super.' },
+      { id: 'hoisting',        label: 'Hoisting y TDZ',            icon: 'arrow-up-outline',         description: 'Comportamiento de declaración y zona muerta temporal.' },
     ],
   },
   {
-    label: 'Funciones avanzadas',
-    folder: 'funciones',
-    color: 'secondary',
-    icon: 'git-branch-outline',
-    topics: [
-      { id: 'arrow-functions', label: 'Arrow functions',              icon: 'trending-up-outline',   description: 'Sintaxis concisa, this léxico y cuándo NO usarlas.' },
-      { id: 'higher-order',    label: 'Funciones de orden superior',  icon: 'layers-outline',        description: 'map, filter, reduce y funciones que reciben o devuelven funciones.' },
-      { id: 'currying',        label: 'Currying y composición',       icon: 'link-outline',          description: 'Transformar funciones de n argumentos en cadenas de 1 argumento.' },
-      { id: 'generators',      label: 'Generators e Iterators',       icon: 'repeat-outline',        description: 'Funciones pausables con yield e iteradores personalizados.' },
-    ],
-  },
-  {
-    label: 'Asincronía',
-    folder: 'asincronia',
+    label: 'JS Avanzado',
+    folder: 'avanzado',
     color: 'tertiary',
-    icon: 'timer-outline',
+    icon: 'rocket-outline',
     topics: [
-      { id: 'event-loop',  label: 'Event loop y call stack',  icon: 'refresh-circle-outline',   description: 'El motor de ejecución: call stack, task queue y microtask queue.' },
-      { id: 'promises',    label: 'Promises',                 icon: 'checkmark-circle-outline',  description: 'Creación, encadenamiento y manejo de errores con Promises.' },
-      { id: 'async-await', label: 'Async / Await',            icon: 'hourglass-outline',         description: 'Sintaxis síncrona para código asíncrono con try/catch.' },
-      { id: 'fetch-api',   label: 'Fetch API',                icon: 'cloud-download-outline',    description: 'Peticiones HTTP nativas con fetch, manejo de JSON y errores.' },
-    ],
-  },
-  {
-    label: 'Datos modernos',
-    folder: 'datos',
-    color: 'success',
-    icon: 'filter-outline',
-    topics: [
-      { id: 'destructuring',     label: 'Destructuring',              icon: 'cut-outline',           description: 'Extraer valores de objetos y arrays con sintaxis concisa.' },
-      { id: 'spread-rest',       label: 'Spread y Rest',              icon: 'expand-outline',        description: 'Operadores ... para clonar, mezclar y recoger argumentos.' },
-      { id: 'array-methods',     label: 'Array methods avanzados',    icon: 'list-outline',          description: 'flatMap, find, findIndex, some, every, at y más.' },
-      { id: 'map-set',           label: 'Map y Set',                  icon: 'albums-outline',        description: 'Colecciones clave-valor y de valores únicos del estándar ES6.' },
-      { id: 'optional-chaining', label: 'Optional chaining y ??',    icon: 'help-circle-outline',   description: 'Acceso seguro a propiedades anidadas y valores por defecto.' },
-    ],
-  },
-  {
-    label: 'Orientación a objetos',
-    folder: 'oop',
-    color: 'warning',
-    icon: 'shapes-outline',
-    topics: [
-      { id: 'clases',   label: 'Clases y herencia',     icon: 'school-outline',           description: 'class, constructor, extends, super y polimorfismo.' },
-      { id: 'privados', label: 'Encapsulación con #',   icon: 'shield-checkmark-outline', description: 'Campos y métodos privados con la sintaxis # de ES2022.' },
-      { id: 'mixins',   label: 'Mixins y composición',  icon: 'swap-horizontal-outline',  description: 'Herencia múltiple funcional mediante composición de objetos.' },
-   ],
-  },
-  {
-    label: 'Módulos ES',
-    folder: 'modulos',
-    color: 'danger',
-    icon: 'cube-outline',
-    topics: [
-      { id: 'es-modules',      label: 'import / export',       icon: 'share-outline',     description: 'Named y default exports, module scope e importaciones nombradas.' },
-      { id: 'dynamic-import',  label: 'import() dinámico',     icon: 'cloud-outline',     description: 'Carga diferida de módulos con import() que devuelve una Promise.' },
-      { id: 'module-patterns', label: 'Patrones de módulo',    icon: 'archive-outline',   description: 'IIFE y Revealing Module Pattern antes de los ES Modules.' },
-    ],
-  },
-  {
-    label: 'Patrones de diseño',
-    folder: 'patrones',
-    color: 'medium',
-    icon: 'construct-outline',
-    topics: [
-      { id: 'patron-singleton', label: 'Singleton',  icon: 'radio-button-on-outline', description: 'Garantizar una única instancia global de un objeto.' },
-      { id: 'patron-observer',  label: 'Observer',   icon: 'notifications-outline',   description: 'Suscripción y notificación entre objetos desacoplados.' },
-      { id: 'patron-factory',   label: 'Factory',    icon: 'hammer-outline',          description: 'Creación de objetos sin exponer la lógica de construcción.' },
+      { id: 'event-loop',        label: 'Event loop y call stack',      icon: 'refresh-circle-outline',  description: 'Call stack, task queue y microtask queue del runtime.' },
+      { id: 'fetch-api',         label: 'Fetch API',                     icon: 'cloud-download-outline',   description: 'Peticiones HTTP con control de respuesta y errores.' },
+      { id: 'optional-chaining', label: 'Optional chaining y ??',        icon: 'help-circle-outline',      description: 'Acceso seguro a propiedades y valores por defecto.' },
+      { id: 'map-set',           label: 'Map y Set',                     icon: 'albums-outline',           description: 'Estructuras avanzadas para colecciones eficientes.' },
+      { id: 'higher-order',      label: 'Funciones de orden superior',   icon: 'layers-outline',           description: 'Funciones que reciben o retornan otras funciones.' },
+      { id: 'generators',        label: 'Generators e Iterators',        icon: 'repeat-outline',           description: 'Funciones pausables con yield e iteración custom.' },
+      { id: 'currying',          label: 'Currying y composición',        icon: 'link-outline',             description: 'Transformación funcional para crear APIs expresivas.' },
+      { id: 'closure',           label: 'Closures y scope léxico',       icon: 'lock-closed-outline',      description: 'Funciones que conservan su entorno de definición.' },
+      { id: 'this-context',      label: 'El valor de this',              icon: 'locate-outline',           description: 'Binding implícito, explícito y comportamiento en arrow.' },
+      { id: 'prototype',         label: 'Cadena de prototipos',          icon: 'git-merge-outline',        description: 'Herencia prototipal y delegación de propiedades.' },
+      { id: 'regex',             label: 'Expresiones regulares',         icon: 'search-outline',           description: 'Patrones para búsqueda, validación y transformación.' },
+      { id: 'es-modules',        label: 'import / export',               icon: 'share-outline',            description: 'Modularización con ES Modules y alcance por archivo.' },
+      { id: 'dynamic-import',    label: 'import() dinámico',             icon: 'cloud-outline',            description: 'Carga diferida de módulos en tiempo de ejecución.' },
+      { id: 'module-patterns',   label: 'Patrones de módulo',            icon: 'archive-outline',          description: 'IIFE y Revealing Module Pattern como base histórica.' },
+      { id: 'privados',          label: 'Encapsulación con #',           icon: 'shield-checkmark-outline', description: 'Campos y métodos privados en clases modernas.' },
+      { id: 'mixins',            label: 'Mixins y composición',          icon: 'swap-horizontal-outline',  description: 'Reutilización de comportamiento sin herencia rígida.' },
+      { id: 'patron-singleton',  label: 'Patrón Singleton',              icon: 'radio-button-on-outline',  description: 'Una sola instancia compartida con acceso controlado.' },
+      { id: 'patron-observer',   label: 'Patrón Observer',               icon: 'notifications-outline',    description: 'Suscripción y notificación desacoplada entre módulos.' },
+      { id: 'patron-factory',    label: 'Patrón Factory',                icon: 'hammer-outline',           description: 'Creación de objetos sin exponer su construcción interna.' },
     ],
   },
 ];
@@ -139,9 +99,9 @@ export function renderJsSection() {
 
   appRoot.innerHTML = `
     <section class="page">
-      <h2>JavaScript avanzado</h2>
+      <h2>JavaScript</h2>
       <p style="margin-bottom:20px;">
-        Selecciona un tema para ver su explicación interactiva y ejemplos de código en vivo.
+        Selecciona un tema por nivel para ver su explicación interactiva y ejemplos de código en vivo.
       </p>
       ${categoriesHtml}
     </section>
