@@ -4,6 +4,17 @@
  */
 
 export function render() {
+  // Utilidad: Consola simulada
+  class SimulatedConsole {
+    constructor() { this.logs = []; }
+    log(...args) { this.logs.push({ type: 'log', message: args.map(a => String(a)).join(' ') }); }
+    warn(...args) { this.logs.push({ type: 'warn', message: args.map(a => String(a)).join(' ') }); }
+    error(...args) { this.logs.push({ type: 'error', message: args.map(a => String(a)).join(' ') }); }
+    clear() { this.logs = []; }
+    render() { return this.logs.slice(-8).map(l => `<span style="color: ${l.type === 'error' ? '#d32f2f' : l.type === 'warn' ? '#f57c00' : '#1976d2'}">${l.type === 'error' ? '❌' : l.type === 'warn' ? '⚠️' : '✓'} ${l.message}</span>`).join('<br>'); }
+  }
+
+  export function render() {
   return `
     <section class="page">
       <ion-button fill="clear" onclick="location.hash='#/js'">
@@ -85,6 +96,30 @@ const [primero, , tercero]  = [10, 20, 30];   // primero=10, tercero=30
 // Swap (intercambio sin variable temporal)
 let [x, y] = [1, 2];
 [x, y] = [y, x];                              // x=2, y=1</pre>
+
+        <!-- MINI-RETOS -->
+        <div class="js-section-title">🎯 Mini-retos</div>
+        <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+          <strong>Reto 1:</strong> Desestructura objeto anidado sin destructuring anidado (usa variables intermedias)<br>
+          <strong>Reto 2:</strong> ¿Por qué las comas vacías en arrays sirven para saltar?<br>
+          <strong>Reto 3:</strong> Desestructura parámetro de función con valores por defecto
+        </div>
+
+        <!-- CONSOLA SIMULADA -->
+        <div class="js-section-title">Consola simulada</div>
+        <div id="dest-console" style="
+          background: #1e1e1e;
+          color: #d4d4d4;
+          padding: 12px;
+          border-radius: 4px;
+          font-family: 'Courier New', monospace;
+          font-size: 12px;
+          max-height: 100px;
+          overflow-y: auto;
+          border: 1px solid #333;
+        ">
+          <div style="color: #888;">// Selecciona una variante para ver la salida</div>
+        </div>
     </section>
   `;
 }
@@ -141,13 +176,17 @@ export function init(root) {
   // Array
   const nums = [10, 20, 30, 40, 50];
 
-  root.querySelector('#btn-arr-basic').addEventListener('click', () => {
-    const [a, b, c] = nums;
-    arrOut.innerHTML = `
-      <pre class="js-code-panel" style="margin:0">const [a, b, c] = [10, 20, 30, 40, 50];</pre>
-      <strong>a</strong> → ${a} &nbsp;|&nbsp;
-      <strong>b</strong> → ${b} &nbsp;|&nbsp;
-      <strong>c</strong> → ${c}`;
+  root.querySelector('#btn-obj-basic').addEventListener('click', () => {
+    simConsole.clear();
+    const { nombre, edad, ciudad } = persona;
+    simConsole.log(`const { nombre, edad, ciudad } = persona`);
+    simConsole.log(`nombre: "${nombre}", edad: ${edad}, ciudad: "${ciudad}"`);
+    updateConsole();
+    objOut.innerHTML = `
+      <pre class="js-code-panel" style="margin:0">const { nombre, edad, ciudad } = persona;</pre>
+      <strong>nombre</strong> → "${nombre}" &nbsp;|&nbsp;
+      <strong>edad</strong> → ${edad} &nbsp;|&nbsp;
+      <strong>ciudad</strong> → "${ciudad}"`;
   });
 
   root.querySelector('#btn-arr-skip').addEventListener('click', () => {

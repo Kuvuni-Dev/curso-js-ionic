@@ -4,6 +4,17 @@
  */
 
 function esperar(ms) {
+  // Utilidad: Consola simulada
+  class SimulatedConsole {
+    constructor() { this.logs = []; }
+    log(...args) { this.logs.push({ type: 'log', message: args.map(a => String(a)).join(' ') }); }
+    warn(...args) { this.logs.push({ type: 'warn', message: args.map(a => String(a)).join(' ') }); }
+    error(...args) { this.logs.push({ type: 'error', message: args.map(a => String(a)).join(' ') }); }
+    clear() { this.logs = []; }
+    render() { return this.logs.slice(-8).map(l => `<span style="color: ${l.type === 'error' ? '#d32f2f' : l.type === 'warn' ? '#f57c00' : '#1976d2'}">${l.type === 'error' ? '❌' : l.type === 'warn' ? '⚠️' : '✓'} ${l.message}</span>`).join('<br>'); }
+  }
+
+  function esperar(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 function simularApiPaso(nombre, ms, falla = false) {
@@ -96,6 +107,30 @@ async function paralelo() {
   ]);
   return [a, b, c]; // total: 300ms
 }</pre>
+
+        <!-- MINI-RETOS -->
+        <div class="js-section-title">🎯 Mini-retos</div>
+        <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+          <strong>Reto 1:</strong> ¿Por qué Promise.all es más rápido que await secuencial?<br>
+          <strong>Reto 2:</strong> Modifica secuencial para que falle y usa try/catch<br>
+          <strong>Reto 3:</strong> Crea una función async que llame a 2 APIs en paralelo
+        </div>
+
+        <!-- CONSOLA SIMULADA -->
+        <div class="js-section-title">Consola simulada</div>
+        <div id="async-console" style="
+          background: #1e1e1e;
+          color: #d4d4d4;
+          padding: 12px;
+          border-radius: 4px;
+          font-family: 'Courier New', monospace;
+          font-size: 12px;
+          max-height: 100px;
+          overflow-y: auto;
+          border: 1px solid #333;
+        ">
+          <div style="color: #888;">// Ejecuta una operación para ver la salida</div>
+        </div>
     </section>
   `;
 }
