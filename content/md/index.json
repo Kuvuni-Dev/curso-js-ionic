@@ -50,6 +50,76 @@
       "tags": ["faq", "dudas", "soporte"]
     },
     {
+      "id": "js-intro-ejecucion",
+      "title": "Introducción a JavaScript y ejecución",
+      "path": "content/md/javascript/js-intro-ejecucion.md",
+      "category": "javascript-basico",
+      "tags": ["introducción", "entorno", "primeros pasos"]
+    },
+    {
+      "id": "js-sintaxis-comentarios",
+      "title": "Sintaxis y comentarios",
+      "path": "content/md/javascript/js-sintaxis-comentarios.md",
+      "category": "javascript-basico",
+      "tags": ["sintaxis", "comentarios", "buenas prácticas"]
+    },
+    {
+      "id": "js-strings-template-literals",
+      "title": "Strings y template literals",
+      "path": "content/md/javascript/js-strings-template-literals.md",
+      "category": "javascript-basico",
+      "tags": ["strings", "template literals", "texto"]
+    },
+    {
+      "id": "js-numbers-math",
+      "title": "Números y objeto Math",
+      "path": "content/md/javascript/js-numbers-math.md",
+      "category": "javascript-basico",
+      "tags": ["number", "math", "operaciones"]
+    },
+    {
+      "id": "js-booleanos-truthy-falsy",
+      "title": "Booleanos, truthy y falsy",
+      "path": "content/md/javascript/js-booleanos-truthy-falsy.md",
+      "category": "javascript-basico",
+      "tags": ["booleanos", "truthy", "falsy"]
+    },
+    {
+      "id": "js-null-undefined-nan",
+      "title": "null, undefined y NaN",
+      "path": "content/md/javascript/js-null-undefined-nan.md",
+      "category": "javascript-basico",
+      "tags": ["null", "undefined", "nan"]
+    },
+    {
+      "id": "js-consola-debug",
+      "title": "Consola y depuración",
+      "path": "content/md/javascript/js-consola-debug.md",
+      "category": "javascript-basico",
+      "tags": ["debug", "devtools", "consola"]
+    },
+    {
+      "id": "js-json-localstorage",
+      "title": "JSON y localStorage",
+      "path": "content/md/javascript/js-json-localstorage.md",
+      "category": "javascript-basico",
+      "tags": ["json", "localstorage", "persistencia"]
+    },
+    {
+      "id": "js-errores-try-catch",
+      "title": "Manejo de errores con try/catch",
+      "path": "content/md/javascript/js-errores-try-catch.md",
+      "category": "javascript-basico",
+      "tags": ["errores", "try", "catch"]
+    },
+    {
+      "id": "js-fechas-tiempo",
+      "title": "Fechas y tiempo con Date",
+      "path": "content/md/javascript/js-fechas-tiempo.md",
+      "category": "javascript-basico",
+      "tags": ["date", "fechas", "tiempo"]
+    },
+    {
       "id": "js-variables-tipos",
       "title": "Variables y tipos de datos",
       "path": "content/md/javascript/js-variables-tipos.md",
