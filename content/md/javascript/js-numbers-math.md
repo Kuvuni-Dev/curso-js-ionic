@@ -12,6 +12,29 @@ console.log(a + b);
 console.log(a - b);
 console.log(a * b);
 console.log(a / b);
+console.log(a % b); // resto de la división
+```
+
+## Entender el módulo (%)
+
+El operador módulo devuelve el resto de una división.
+
+```js
+console.log(10 % 3); // 1
+console.log(20 % 5); // 0
+console.log(7 % 2); // 1
+```
+
+Uso típico: saber si un número es par o impar.
+
+```js
+const numero = 14;
+
+if (numero % 2 === 0) {
+	console.log('Es par');
+} else {
+	console.log('Es impar');
+}
 ```
 
 ## Redondeo y máximo/mínimo
@@ -32,6 +55,24 @@ console.log(Math.sqrt(81)); // 9
 console.log(Math.abs(-12)); // 12
 ```
 
+## Otros métodos útiles de Math
+
+```js
+console.log(Math.trunc(8.99)); // 8
+console.log(Math.sign(-15)); // -1
+console.log(Math.sign(0)); // 0
+console.log(Math.sign(42)); // 1
+console.log(Math.cbrt(27)); // 3
+console.log(Math.hypot(3, 4)); // 5
+```
+
+Resumen rápido:
+
+- Math.trunc elimina la parte decimal sin redondear.
+- Math.sign indica si el número es negativo, cero o positivo.
+- Math.cbrt calcula la raíz cúbica.
+- Math.hypot calcula la hipotenusa (teorema de Pitágoras).
+
 ## Convertir texto a número
 
 ```js
@@ -50,7 +91,37 @@ const promedio = 8.4567;
 console.log(promedio.toFixed(2)); // 8.46
 ```
 
-Nota: `toFixed` devuelve string.
+Con `toFixed(n)` puedes fijar exactamente `n` decimales:
+
+```js
+const precio = 12;
+console.log(precio.toFixed(2)); // "12.00"
+
+const pi = 3.141592;
+console.log(pi.toFixed(4)); // "3.1416"
+```
+
+Nota importante: `toFixed` devuelve `string`, no `number`.
+
+Si necesitas el valor como número:
+
+```js
+const valor = 9.8765;
+const conDosDecimales = Number(valor.toFixed(2));
+
+console.log(conDosDecimales); // 9.88
+console.log(typeof conDosDecimales); // number
+```
+
+Ejemplo de función reutilizable:
+
+```js
+function fijarDecimales(numero, cantidad) {
+	return Number(numero.toFixed(cantidad));
+}
+
+console.log(fijarDecimales(15.2399, 2)); // 15.24
+```
 
 ## Aleatorios
 
