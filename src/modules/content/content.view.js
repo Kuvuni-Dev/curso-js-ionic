@@ -9,12 +9,17 @@ const CATEGORIES = [
   { key: 'general',    label: 'General',    color: 'success' },
 ];
 
+/**
+ * Renderiza el índice de documentos agrupados por categoría.
+ * @returns {Promise<void>}
+ */
 export async function renderDocsIndex() {
   appRoot.innerHTML = `<section class="page"><ion-spinner name="crescent"></ion-spinner></section>`;
 
   try {
     const items = await fetchDocsIndex();
 
+    // Agrupa documentos por categoría para construir tarjetas independientes.
     const sections = CATEGORIES.map(({ key, label, color }) => {
       const group = items.filter((i) => i.category === key);
       if (!group.length) return '';
@@ -57,6 +62,11 @@ export async function renderDocsIndex() {
   }
 }
 
+/**
+ * Renderiza un documento markdown por su id.
+ * @param {string} docId
+ * @returns {Promise<void>}
+ */
 export async function renderDocView(docId) {
   appRoot.innerHTML = `<section class="page"><ion-spinner name="crescent"></ion-spinner></section>`;
 
@@ -83,6 +93,10 @@ export async function renderDocView(docId) {
   }
 }
 
+/**
+ * Muestra un estado de error amigable en la vista actual.
+ * @param {string} message
+ */
 function renderError(message) {
   appRoot.innerHTML = `
     <section class="page">

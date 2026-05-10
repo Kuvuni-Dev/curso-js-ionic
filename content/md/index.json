@@ -64,6 +64,13 @@
       "tags": ["sintaxis", "comentarios", "buenas prácticas"]
     },
     {
+      "id": "js-documentacion-funciones",
+      "title": "Documentar funciones en JavaScript (JSDoc)",
+      "path": "content/md/javascript/js-documentacion-funciones.md",
+      "category": "javascript-basico",
+      "tags": ["jsdoc", "documentación", "funciones"]
+    },
+    {
       "id": "js-strings-template-literals",
       "title": "Strings y template literals",
       "path": "content/md/javascript/js-strings-template-literals.md",
