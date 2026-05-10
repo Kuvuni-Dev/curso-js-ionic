@@ -309,6 +309,13 @@
       "tags": ["ionic", "router", "navegación"]
     },
     {
+      "id": "ionic-cli-comandos",
+      "title": "Ionic CLI y comandos utiles",
+      "path": "content/md/ionic/ionic-cli-comandos.md",
+      "category": "ionic",
+      "tags": ["ionic", "cli", "comandos", "capacitor", "live-server"]
+    },
+    {
       "id": "capacitor-intro",
       "title": "Introducción a Capacitor",
       "path": "content/md/ionic/capacitor-intro.md",
