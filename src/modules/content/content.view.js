@@ -5,7 +5,11 @@ import { fetchDocsIndex, fetchDoc } from './content.service.js';
 const CATEGORIES = [
   { key: 'javascript-basico', label: 'JavaScript básico', color: 'warning' },
   { key: 'javascript-avanzado', label: 'JavaScript avanzado', color: 'tertiary' },
-  { key: 'ionic',      label: 'Ionic',      color: 'primary' },
+  { key: 'ionic-fundamentos', label: 'Ionic - Fundamentos', color: 'primary' },
+  { key: 'ionic-instalacion', label: 'Ionic - Instalación de frameworks', color: 'primary' },
+  { key: 'ionic-componentes', label: 'Ionic - Componentes y ejemplos', color: 'primary' },
+  { key: 'ionic-capacitor', label: 'Ionic - Capacitor', color: 'primary' },
+  { key: 'ionic-mini-proyectos', label: 'Ionic - Mini Proyectos', color: 'primary' },
   { key: 'general',    label: 'General',    color: 'success' },
 ];
 
