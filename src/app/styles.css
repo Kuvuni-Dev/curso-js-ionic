@@ -95,6 +95,36 @@ ion-segment-button::part(indicator-background) {
   padding: 0;
 }
 
+.markdown-page .markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  border: 1px solid var(--app-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.markdown-page .markdown-body th,
+.markdown-page .markdown-body td {
+  border: 1px solid var(--app-border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.markdown-page .markdown-body th {
+  background: var(--app-code-bg);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .markdown-page .markdown-body th,
+  .markdown-page .markdown-body td {
+    padding: 8px 10px;
+    font-size: 0.92rem;
+  }
+}
+
 /* ---- Cards: contraste en modo oscuro ---- */
 .ion-palette-dark ion-card-title,
 .ion-palette-dark ion-card-subtitle {

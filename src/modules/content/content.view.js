@@ -14,47 +14,77 @@ const CATEGORIES = [
 ];
 
 /**
- * Renderiza el índice de documentos agrupados por categoría.
+ * Renderiza categorías de documentación o, si llega una categoría,
+ * los documentos de esa categoría.
+ * @param {string} [categoryKey='']
  * @returns {Promise<void>}
  */
-export async function renderDocsIndex() {
+export async function renderDocsIndex(categoryKey = '') {
   appRoot.innerHTML = `<section class="page"><ion-spinner name="crescent"></ion-spinner></section>`;
 
   try {
     const items = await fetchDocsIndex();
 
-    // Agrupa documentos por categoría para construir tarjetas independientes.
-    const sections = CATEGORIES.map(({ key, label, color }) => {
-      const group = items.filter((i) => i.category === key);
-      if (!group.length) return '';
-      return `
-        <ion-card>
-          <ion-card-header>
-            <ion-chip color="${color}" style="margin-bottom:4px;">
-              <ion-label>${label}</ion-label>
-            </ion-chip>
-            <ion-card-title>${label}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content style="padding:0;">
-            <ion-list lines="inset">
-              ${group.map((item) => `
-                <ion-item button="true" detail="true" data-doc-id="${item.id}">
-                  <ion-label>
-                    <h3>${item.title}</h3>
-                    <p>${(item.tags || []).join(', ')}</p>
-                  </ion-label>
-                </ion-item>
-              `).join('')}
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
+    if (!categoryKey) {
+      const categoriesMarkup = CATEGORIES.map(({ key, label, color }) => {
+        const count = items.filter((i) => i.category === key).length;
+        if (!count) return '';
+        return `
+          <ion-card button="true" data-category-key="${key}" style="cursor:pointer;">
+            <ion-card-header>
+              <ion-chip color="${color}" style="margin-bottom:4px;">
+                <ion-label>${label}</ion-label>
+              </ion-chip>
+              <ion-card-title>${label}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>${count} documento(s)</p>
+            </ion-card-content>
+          </ion-card>
+        `;
+      }).join('');
+
+      appRoot.innerHTML = `
+        <section class="page">
+          <h2>Documentación del curso</h2>
+          <p>Selecciona una categoría para ver sus documentos.</p>
+          ${categoriesMarkup}
+        </section>
       `;
-    }).join('');
+
+      appRoot.querySelectorAll('[data-category-key]').forEach((el) => {
+        el.addEventListener('click', () => navigateTo('docs', el.getAttribute('data-category-key')));
+      });
+      return;
+    }
+
+    const category = CATEGORIES.find((c) => c.key === categoryKey);
+    const group = items.filter((i) => i.category === categoryKey);
+
+    if (!category || !group.length) {
+      appRoot.innerHTML = `
+        <section class="page">
+          <ion-button fill="clear" onclick="location.hash='#/docs'">Volver a categorías</ion-button>
+          <p>Categoría no encontrada o sin documentos.</p>
+        </section>
+      `;
+      return;
+    }
 
     appRoot.innerHTML = `
       <section class="page">
-        <h2>Documentación del curso</h2>
-        ${sections}
+        <ion-button fill="clear" onclick="location.hash='#/docs'">Volver a categorías</ion-button>
+        <h2>${category.label}</h2>
+        <ion-list lines="inset">
+          ${group.map((item) => `
+            <ion-item button="true" detail="true" data-doc-id="${item.id}">
+              <ion-label>
+                <h3>${item.title}</h3>
+                <p>${(item.tags || []).join(', ')}</p>
+              </ion-label>
+            </ion-item>
+          `).join('')}
+        </ion-list>
       </section>
     `;
 
@@ -87,9 +117,16 @@ export async function renderDocView(docId) {
 
     appRoot.innerHTML = `
       <section class="page markdown-page">
-        <ion-button fill="clear" onclick="location.hash='#/docs'">Volver</ion-button>
+        <ion-button fill="clear" onclick="location.hash='#/docs/${item.category}'">Volver</ion-button>
         <h2>${item.title}</h2>
         <article class="markdown-body">${sanitized}</article>
+        <ion-button
+          color="primary"
+          style="position:fixed; right:clamp(16px, 8vw, 50px); bottom:calc(84px + env(safe-area-inset-bottom)); z-index:1000; box-shadow:0 6px 16px rgba(0,0,0,.2);"
+          onclick="location.hash='#/docs/${item.category}'"
+        >
+          Volver
+        </ion-button>
       </section>
     `;
   } catch (error) {

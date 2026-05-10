@@ -531,6 +531,48 @@
       "path": "content/md/ionic/02-instalacion/ionic-instalacion-frameworks.md",
       "category": "ionic-instalacion",
       "tags": ["setup", "instalación", "react", "vue", "angular", "npm"]
+    },
+    {
+      "id": "mini-01-todo-simple",
+      "title": "Mini 1: Todo Simple",
+      "path": "content/md/ionic/05-mini-proyectos/mini-01-todo-simple.md",
+      "category": "ionic-mini-proyectos",
+      "tags": ["mini-proyecto", "todo", "vanilla", "react", "vue", "angular"]
+    },
+    {
+      "id": "mini-02-todo-localstorage",
+      "title": "Mini 2: Todo con localStorage",
+      "path": "content/md/ionic/05-mini-proyectos/mini-02-todo-localstorage.md",
+      "category": "ionic-mini-proyectos",
+      "tags": ["mini-proyecto", "localStorage", "persistencia", "vanilla", "react", "vue", "angular"]
+    },
+    {
+      "id": "mini-03-galeria",
+      "title": "Mini 3: Galería de imágenes",
+      "path": "content/md/ionic/05-mini-proyectos/mini-03-galeria.md",
+      "category": "ionic-mini-proyectos",
+      "tags": ["mini-proyecto", "galería", "cards", "modal", "ion-grid"]
+    },
+    {
+      "id": "mini-04-notas-crud",
+      "title": "Mini 4: Notas CRUD",
+      "path": "content/md/ionic/05-mini-proyectos/mini-04-notas-crud.md",
+      "category": "ionic-mini-proyectos",
+      "tags": ["mini-proyecto", "crud", "notas", "formularios", "ion-alert"]
+    },
+    {
+      "id": "mini-05-consumo-api",
+      "title": "Mini 5: Consumo de API",
+      "path": "content/md/ionic/05-mini-proyectos/mini-05-consumo-api.md",
+      "category": "ionic-mini-proyectos",
+      "tags": ["mini-proyecto", "api", "fetch", "async", "loading", "error"]
+    },
+    {
+      "id": "mini-06-camara-capacitor",
+      "title": "Mini 6: Cámara con Capacitor",
+      "path": "content/md/ionic/05-mini-proyectos/mini-06-camara-capacitor.md",
+      "category": "ionic-mini-proyectos",
+      "tags": ["mini-proyecto", "camara", "capacitor", "plugin", "nativo", "permisos"]
     }
   ]
 }
