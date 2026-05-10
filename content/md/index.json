@@ -50,6 +50,13 @@
       "tags": ["faq", "dudas", "soporte"]
     },
     {
+      "id": "git-github-basico",
+      "title": "Git y GitHub para principiantes",
+      "path": "content/md/general/git-github-basico.md",
+      "category": "general",
+      "tags": ["git", "github", "versionado", "repositorio", "ramas"]
+    },
+    {
       "id": "js-intro-ejecucion",
       "title": "Introducción a JavaScript y ejecución",
       "path": "content/md/javascript/js-intro-ejecucion.md",
