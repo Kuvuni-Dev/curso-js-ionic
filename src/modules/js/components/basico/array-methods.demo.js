@@ -3,6 +3,16 @@
  * @description Demo interactivo: Métodos de array avanzados.
  */
 
+// Utilidad: Consola simulada
+class SimulatedConsole {
+  constructor() { this.logs = []; }
+  log(...args) { this.logs.push({ type: 'log', message: args.map(a => String(a)).join(' ') }); }
+  warn(...args) { this.logs.push({ type: 'warn', message: args.map(a => String(a)).join(' ') }); }
+  error(...args) { this.logs.push({ type: 'error', message: args.map(a => String(a)).join(' ') }); }
+  clear() { this.logs = []; }
+  render() { return this.logs.slice(-8).map(l => `<span style="color: ${l.type === 'error' ? '#d32f2f' : l.type === 'warn' ? '#f57c00' : '#1976d2'}">${l.type === 'error' ? '❌' : l.type === 'warn' ? '⚠️' : '✓'} ${l.message}</span>`).join('<br>'); }
+}
+
 const ALUMNOS = [
   { nombre: 'Ana',     nota: 9.5, grado: 'DAW' },
   { nombre: 'Carlos',  nota: 6.2, grado: 'DAM' },
@@ -78,15 +88,48 @@ arr.sort((a, b) => b - a)    // numérico descendente
 
 // Comprobar si existe (valor primitivo)
 arr.includes(valor)  // true/false</pre>
+
+      <!-- MINI-RETOS -->
+      <div class="js-section-title">🎯 Mini-retos</div>
+      <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+        <strong>Reto 1:</strong> Diferencia entre find() y filter()<br>
+        <strong>Reto 2:</strong> ¿Por qué sort() modifica el array original?<br>
+        <strong>Reto 3:</strong> Usa at(-1) para obtener el último alumno
+      </div>
+
+      <!-- CONSOLA SIMULADA -->
+      <div class="js-section-title">Consola simulada</div>
+      <div id="arr-console" style="
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 12px;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
+        max-height: 100px;
+        overflow-y: auto;
+        border: 1px solid #333;
+      ">
+        <div style="color: #888;">// Selecciona un método para ver la salida</div>
+      </div>
     </section>
   `;
 }
 
 export function init(root) {
+  const simConsole = new SimulatedConsole();
   const out  = root.querySelector('#arr-out');
   const code = root.querySelector('#arr-code');
+  const consoleDisplay = root.querySelector('#arr-console');
 
-  function show(html, codeText) {
+  const updateConsole = () => {
+    consoleDisplay.innerHTML = simConsole.render() || '<div style="color: #888;">// Vacío</div>';
+  };
+
+  function show(html, codeText, logMessages = []) {
+    simConsole.clear();
+    logMessages.forEach(msg => simConsole.log(msg));
+    updateConsole();
     out.innerHTML = html;
     code.style.display = 'block';
     code.textContent = codeText;
@@ -97,14 +140,18 @@ export function init(root) {
     show(
       `<code>.find(a => a.nota >= 9)</code><br>
        → primer alumno con nota ≥ 9: <strong>${res ? JSON.stringify(res) : 'undefined'}</strong>`,
-      `alumnos.find(a => a.nota >= 9);\n// { nombre: '${res?.nombre}', nota: ${res?.nota}, grado: '${res?.grado}' }`
+      `alumnos.find(a => a.nota >= 9);\n// { nombre: '${res?.nombre}', nota: ${res?.nota}, grado: '${res?.grado}' }`,
+      [`find(a => a.nota >= 9)`, `Primer resultado: ${res?.nombre}`]
     );
   });
 
   root.querySelector('#btn-findindex').addEventListener('click', () => {
     const idx = ALUMNOS.findIndex(a => a.grado === 'DAM');
     show(
-      `<code>.findIndex(a => a.grado === 'DAM')</code><br>
+      `<code>.findIndex(a => a.grado === 'DAM')</code><br>`,
+      `alumnos.findIndex(a => a.grado === 'DAM');\n// ${idx}`,
+      [`findIndex(a => a.grado === 'DAM')`, `Índice del primer resultado: ${idx}`, `Alumno: ${ALUMNOS[idx]?.nombre}`]
+    );
        → índice del primer alumno de DAM: <strong>${idx}</strong>
        (${ALUMNOS[idx].nombre})`,
       `alumnos.findIndex(a => a.grado === 'DAM'); // ${idx}`

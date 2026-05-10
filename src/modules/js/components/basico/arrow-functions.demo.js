@@ -3,6 +3,16 @@
  * @description Demo interactivo: Arrow functions vs funciones clásicas.
  */
 
+// Utilidad: Consola simulada
+class SimulatedConsole {
+  constructor() { this.logs = []; }
+  log(...args) { this.logs.push({ type: 'log', message: args.map(a => String(a)).join(' ') }); }
+  warn(...args) { this.logs.push({ type: 'warn', message: args.map(a => String(a)).join(' ') }); }
+  error(...args) { this.logs.push({ type: 'error', message: args.map(a => String(a)).join(' ') }); }
+  clear() { this.logs = []; }
+  render() { return this.logs.slice(-8).map(l => `<span style="color: ${l.type === 'error' ? '#d32f2f' : l.type === 'warn' ? '#f57c00' : '#1976d2'}">${l.type === 'error' ? '❌' : l.type === 'warn' ? '⚠️' : '✓'} ${l.message}</span>`).join('<br>'); }
+}
+
 export function render() {
   return `
     <section class="page">
@@ -36,15 +46,15 @@ const doble = n => n * 2;
 const saluda = () => 'Hola';</pre>
 
       <!-- RETURN IMPLÍCITO PLAYGROUND -->
-      <div class="js-section-title">Playground: return implícito</div>
+      <div class="js-section-title">Laboratorio: return implícito</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
         <div>
           <div style="font-size:12px;color:var(--ion-color-medium);margin-bottom:4px;">Valor de A</div>
-          <input id="inp-a" type="number" value="5" class="js-input" />
+          <ion-input id="inp-a" type="number" value="5"></ion-input>
         </div>
         <div>
           <div style="font-size:12px;color:var(--ion-color-medium);margin-bottom:4px;">Valor de B</div>
-          <input id="inp-b" type="number" value="3" class="js-input" />
+          <ion-input id="inp-b" type="number" value="3"></ion-input>
         </div>
       </div>
       <div class="js-controls">
@@ -61,6 +71,30 @@ const saluda = () => 'Hola';</pre>
         <ion-button size="small" color="success" id="btn-this-arrow">Con arrow (mantiene this)</ion-button>
       </div>
       <div id="this-output" class="js-output"></div>
+
+      <!-- MINI-RETOS -->
+      <div class="js-section-title">🎯 Mini-retos</div>
+      <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+        <strong>Reto 1:</strong> Crea tu propia arrow function para restar<br>
+        <strong>Reto 2:</strong> ¿Qué diferencia hay entre <code>=></code> y <code>function</code>?<br>
+        <strong>Reto 3:</strong> ¿Por qué `this` es diferente en arrow functions?
+      </div>
+
+      <!-- CONSOLA SIMULADA -->
+      <div class="js-section-title">Consola simulada</div>
+      <div id="arrow-console" style="
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 12px;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
+        max-height: 100px;
+        overflow-y: auto;
+        border: 1px solid #333;
+      ">
+        <div style="color: #888;">// Los logs aparecen aquí</div>
+      </div>
 
       <!-- CUÁNDO NO USAR -->
       <div class="js-section-title">Cuándo NO usar arrow functions</div>
@@ -86,6 +120,13 @@ fetch(url).then(res => res.json());</pre>
 }
 
 export function init(root) {
+  const simConsole = new SimulatedConsole();
+  const consoleDisplay = root.querySelector('#arrow-console');
+  
+  const updateConsole = () => {
+    consoleDisplay.innerHTML = simConsole.render() || '<div style="color: #888;">// Vacío</div>';
+  };
+
   const sumar       = (a, b) => a + b;
   const multiplicar = (a, b) => a * b;
   const potencia    = (a, b) => a ** b;
@@ -94,19 +135,38 @@ export function init(root) {
   const thisOut = root.querySelector('#this-output');
 
   function getAB() {
-    const a = Number(root.querySelector('#inp-a').value) || 0;
-    const b = Number(root.querySelector('#inp-b').value) || 0;
-    return { a, b };
+    try {
+      const a = Number(root.querySelector('#inp-a').value) || 0;
+      const b = Number(root.querySelector('#inp-b').value) || 0;
+      return { a, b };
+    } catch (e) {
+      simConsole.error('Entrada inválida');
+      updateConsole();
+      return { a: 0, b: 0 };
+    }
   }
 
+  const out     = root.querySelector('#arrow-output');
+  const thisOut = root.querySelector('#this-output');
+
   root.querySelector('#btn-sum').addEventListener('click', () => {
+    simConsole.clear();
     const { a, b } = getAB();
+    const resultado = sumar(a, b);
+    simConsole.log(`sumar(${a}, ${b}) = ${resultado}`);
+    updateConsole();
     out.innerHTML = `<code>const sumar = (a, b) => a + b</code><br>
-      sumar(${a}, ${b}) → <strong style="color:var(--ion-color-primary)">${sumar(a, b)}</strong>`;
+      sumar(${a}, ${b}) → <strong style="color:var(--ion-color-primary)">${resultado}</strong>`;
   });
 
   root.querySelector('#btn-mul').addEventListener('click', () => {
+    simConsole.clear();
     const { a, b } = getAB();
+    const resultado = multiplicar(a, b);
+    simConsole.log(`multiplicar(${a}, ${b}) = ${resultado}`);
+    updateConsole();
+    out.innerHTML = `<code>const multiplicar = (a, b) => a * b</code><br>
+      multiplicar(${a}, ${b}) → <strong style="color:var(--ion-color-secondary)">${resultado}</strong>`;
     out.innerHTML = `<code>const multiplicar = (a, b) => a * b</code><br>
       multiplicar(${a}, ${b}) → <strong style="color:var(--ion-color-secondary)">${multiplicar(a, b)}</strong>`;
   });

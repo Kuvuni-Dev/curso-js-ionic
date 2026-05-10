@@ -3,6 +3,16 @@
  * @description Demo interactivo: Clases ES6, herencia y polimorfismo.
  */
 
+// Utilidad: Consola simulada
+class SimulatedConsole {
+  constructor() { this.logs = []; }
+  log(...args) { this.logs.push({ type: 'log', message: args.map(a => String(a)).join(' ') }); }
+  warn(...args) { this.logs.push({ type: 'warn', message: args.map(a => String(a)).join(' ') }); }
+  error(...args) { this.logs.push({ type: 'error', message: args.map(a => String(a)).join(' ') }); }
+  clear() { this.logs = []; }
+  render() { return this.logs.slice(-8).map(l => `<span style="color: ${l.type === 'error' ? '#d32f2f' : l.type === 'warn' ? '#f57c00' : '#1976d2'}">${l.type === 'error' ? '❌' : l.type === 'warn' ? '⚠️' : '✓'} ${l.message}</span>`).join('<br>'); }
+}
+
 export function render() {
   return `
     <section class="page">
@@ -75,11 +85,41 @@ MathUtils.sumar(3, 4); // 7 — sin new</pre>
         <ion-button size="small" color="warning" id="btn-static">Probar MathUtils estático</ion-button>
       </div>
       <div id="static-out" class="js-output" style="min-height:40px;"></div>
+
+      <!-- MINI-RETOS -->
+      <div class="js-section-title">🎯 Mini-retos</div>
+      <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+        <strong>Reto 1:</strong> ¿Qué diferencia hay entre super() y this?<br>
+        <strong>Reto 2:</strong> Crea una clase Gato que herede de Mamífero<br>
+        <strong>Reto 3:</strong> ¿Por qué instanceof devuelve true para toda la cadena?
+      </div>
+
+      <!-- CONSOLA SIMULADA -->
+      <div class="js-section-title">Consola simulada</div>
+      <div id="cls-console" style="
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 12px;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
+        max-height: 100px;
+        overflow-y: auto;
+        border: 1px solid #333;
+      ">
+        <div style="color: #888;">// Crea una instancia para ver la salida</div>
+      </div>
     </section>
   `;
 }
 
 export function init(root) {
+  const simConsole = new SimulatedConsole();
+  const consoleDisplay = root.querySelector('#cls-console');
+  const updateConsole = () => {
+    consoleDisplay.innerHTML = simConsole.render() || '<div style="color: #888;">// Vacío</div>';
+  };
+
   class Animal {
     constructor(nombre) { this.nombre = nombre; }
     respirar()  { return `${this.nombre} respira`; }
@@ -117,7 +157,12 @@ export function init(root) {
   const statOut = root.querySelector('#static-out');
 
   root.querySelector('#btn-new-animal').addEventListener('click', () => {
+    simConsole.clear();
     const a = new Animal('Loro');
+    simConsole.log('new Animal("Loro")');
+    simConsole.log(`toString(): ${a}`);
+    simConsole.log(`instanceof Animal: ${a instanceof Animal}`);
+    updateConsole();
     out.innerHTML = `
       <code>const a = new Animal('Loro');</code><br>
       <strong>${a}</strong><br>

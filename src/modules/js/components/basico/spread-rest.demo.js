@@ -123,7 +123,7 @@ export function init(root) {
       <pre class="js-code-panel" style="margin:0">Math.max(...[${todos}]);
 // equivale a: Math.max(${todos.join(', ')})</pre>
       resultado: <strong style="color:var(--ion-color-success)">${max}</strong>
-      <br><small>Spread convierte el array en argumentos individuales — útil con funciones variadicas.</small>`;
+      <br><small>Spread convierte el array en argumentos individuales — útil con funciones variádicas.</small>`;
   });
 
   // SPREAD EN OBJETOS
