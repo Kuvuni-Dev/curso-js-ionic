@@ -482,6 +482,55 @@
       "path": "content/md/ionic/capacitor-ejemplo.md",
       "category": "ionic",
       "tags": ["capacitor", "ejemplo", "proyecto"]
+    },
+    {
+      "id": "ionic-01-estructura-proyecto",
+      "title": "1. Estructura de un proyecto Ionic",
+      "path": "content/md/ionic/ionic-01-estructura-proyecto.md",
+      "category": "ionic",
+      "tags": ["fundamentos", "estructura", "carpetas"]
+    },
+    {
+      "id": "ionic-02-layout-esencial",
+      "title": "2. Layout esencial: Header, Content y Footer",
+      "path": "content/md/ionic/ionic-02-layout-esencial.md",
+      "category": "ionic",
+      "tags": ["fundamentos", "layout", "header", "content", "footer"]
+    },
+    {
+      "id": "ionic-03-componentes-basicos",
+      "title": "3. Componentes básicos de Ionic",
+      "path": "content/md/ionic/ionic-03-componentes-basicos.md",
+      "category": "ionic",
+      "tags": ["fundamentos", "componentes", "button", "input", "list"]
+    },
+    {
+      "id": "ionic-04-navegacion-basica",
+      "title": "4. Navegación básica en Ionic",
+      "path": "content/md/ionic/ionic-04-navegacion-basica.md",
+      "category": "ionic",
+      "tags": ["fundamentos", "navegacion", "router", "routing"]
+    },
+    {
+      "id": "ionic-05-eventos-datos",
+      "title": "5. Eventos y manejo de datos en Ionic",
+      "path": "content/md/ionic/ionic-05-eventos-datos.md",
+      "category": "ionic",
+      "tags": ["fundamentos", "eventos", "datos", "formularios"]
+    },
+    {
+      "id": "ionic-06-intro-frameworks",
+      "title": "6. Introducción a frameworks: React, Vue y Angular",
+      "path": "content/md/ionic/ionic-06-intro-frameworks.md",
+      "category": "ionic",
+      "tags": ["fundamentos", "frameworks", "react", "vue", "angular", "comparacion"]
+    },
+    {
+      "id": "ionic-instalacion-frameworks",
+      "title": "Instalación y setup de frameworks para Ionic",
+      "path": "content/md/ionic/ionic-instalacion-frameworks.md",
+      "category": "ionic",
+      "tags": ["setup", "instalación", "react", "vue", "angular", "npm"]
     }
   ]
 }
