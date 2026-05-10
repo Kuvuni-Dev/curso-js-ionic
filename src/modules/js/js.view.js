@@ -16,11 +16,23 @@ import { navigateTo } from '../../app/router.js';
  */
 const CATEGORIES = [
   {
-    label: 'JS Basico',
+    label: 'JS Básico',
     folder: 'basico',
     color: 'primary',
     icon: 'school-outline',
     topics: [
+      { id: 'variables-tipos',           label: 'Variables y tipos',              icon: 'pricetag-outline',           description: 'Declaraciones con let/const y tipos primitivos fundamentales.' },
+      { id: 'sintaxis-comentarios',      label: 'Sintaxis y comentarios',         icon: 'document-text-outline',      description: 'Reglas básicas de escritura, mayúsculas y comentarios.' },
+      { id: 'operadores',                label: 'Operadores',                     icon: 'calculator-outline',         description: 'Aritmética y comparaciones para construir expresiones.' },
+      { id: 'condicionales',             label: 'Condicionales',                  icon: 'git-branch-outline',         description: 'Control de flujo con if/else y operador ternario.' },
+      { id: 'bucles',                    label: 'Bucles',                         icon: 'sync-outline',               description: 'Repetición con for y while en iteraciones básicas.' },
+      { id: 'funciones-basicas',         label: 'Funciones básicas',              icon: 'code-working-outline',       description: 'Funciones declaradas, parámetros y valores por defecto.' },
+      { id: 'arrays-objetos-basico',     label: 'Arrays y objetos (básico)',      icon: 'albums-outline',             description: 'Estructuras de datos esenciales y operaciones iniciales.' },
+      { id: 'booleanos-truthy-falsy',    label: 'Booleanos, truthy y falsy',      icon: 'help-outline',               description: 'Cómo se evalúan valores en contexto condicional.' },
+      { id: 'strings-template-literals', label: 'Strings y template literals',    icon: 'text-outline',               description: 'Interpolación y construcción moderna de cadenas.' },
+      { id: 'numbers-math',              label: 'Números y Math',                 icon: 'podium-outline',             description: 'Operaciones numéricas y utilidades del objeto Math.' },
+      { id: 'null-undefined-nan',        label: 'null, undefined y NaN',          icon: 'alert-circle-outline',       description: 'Diferencias entre ausencia de valor y error numérico.' },
+      { id: 'consola-debug',             label: 'Consola y depuración',           icon: 'terminal-outline',           description: 'Uso de console.log/warn/error para depurar código.' },
       { id: 'arrow-functions', label: 'Arrow functions',           icon: 'trending-up-outline',      description: 'Sintaxis concisa, this léxico y cuándo NO usarlas.' },
       { id: 'array-methods',   label: 'Array methods',             icon: 'list-outline',             description: 'map, filter, reduce, find y otros métodos clave para colecciones.' },
       { id: 'destructuring',   label: 'Destructuring',             icon: 'cut-outline',              description: 'Extraer valores de objetos y arrays con sintaxis clara.' },
