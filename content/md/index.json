@@ -381,155 +381,155 @@
     {
       "id": "ionic-componentes",
       "title": "Guía de componentes Ionic",
-      "path": "content/md/ionic/ionic-componentes.md",
-      "category": "ionic",
+      "path": "content/md/ionic/03-componentes/ionic-componentes.md",
+      "category": "ionic-componentes",
       "tags": ["ionic", "componentes"]
     },
     {
       "id": "ionic-estructura",
       "title": "Estructura de una app Ionic",
-      "path": "content/md/ionic/ionic-estructura.md",
-      "category": "ionic",
+      "path": "content/md/ionic/03-componentes/ionic-estructura.md",
+      "category": "ionic-componentes",
       "tags": ["estructura", "ion-app", "ion-page"]
     },
     {
       "id": "ionic-botones-acciones",
       "title": "Botones y acciones en Ionic",
-      "path": "content/md/ionic/ionic-botones-acciones.md",
-      "category": "ionic",
+      "path": "content/md/ionic/03-componentes/ionic-botones-acciones.md",
+      "category": "ionic-componentes",
       "tags": ["botones", "action-sheet", "fab"]
     },
     {
       "id": "ionic-formularios",
       "title": "Formularios en Ionic",
-      "path": "content/md/ionic/ionic-formularios.md",
-      "category": "ionic",
+      "path": "content/md/ionic/03-componentes/ionic-formularios.md",
+      "category": "ionic-componentes",
       "tags": ["formularios", "ion-input", "ion-select"]
     },
     {
       "id": "ionic-layout",
       "title": "Layout y contenido en Ionic",
-      "path": "content/md/ionic/ionic-layout.md",
-      "category": "ionic",
+      "path": "content/md/ionic/03-componentes/ionic-layout.md",
+      "category": "ionic-componentes",
       "tags": ["layout", "grid", "cards"]
     },
     {
       "id": "ionic-interaccion-scroll",
       "title": "Interacción y scroll en Ionic",
-      "path": "content/md/ionic/ionic-interaccion-scroll.md",
-      "category": "ionic",
+      "path": "content/md/ionic/03-componentes/ionic-interaccion-scroll.md",
+      "category": "ionic-componentes",
       "tags": ["scroll", "interacción", "refresh"]
     },
     {
       "id": "ionic-feedback",
       "title": "Feedback y overlays en Ionic",
-      "path": "content/md/ionic/ionic-feedback.md",
-      "category": "ionic",
+      "path": "content/md/ionic/03-componentes/ionic-feedback.md",
+      "category": "ionic-componentes",
       "tags": ["alert", "toast", "modal"]
     },
     {
       "id": "ionic-navegacion",
       "title": "Navegación en Ionic",
-      "path": "content/md/ionic/ionic-navegacion.md",
-      "category": "ionic",
+      "path": "content/md/ionic/03-componentes/ionic-navegacion.md",
+      "category": "ionic-componentes",
       "tags": ["ionic", "router", "navegación"]
     },
     {
       "id": "ionic-cli-comandos",
       "title": "Ionic CLI y comandos utiles",
-      "path": "content/md/ionic/ionic-cli-comandos.md",
-      "category": "ionic",
+      "path": "content/md/ionic/02-instalacion/ionic-cli-comandos.md",
+      "category": "ionic-instalacion",
       "tags": ["ionic", "cli", "comandos", "capacitor", "live-server"]
     },
     {
       "id": "capacitor-intro",
       "title": "Introducción a Capacitor",
-      "path": "content/md/ionic/capacitor-intro.md",
-      "category": "ionic",
+      "path": "content/md/ionic/04-capacitor/capacitor-intro.md",
+      "category": "ionic-capacitor",
       "tags": ["capacitor", "nativo", "ios", "android"]
     },
     {
       "id": "capacitor-config",
       "title": "Configuración de Capacitor",
-      "path": "content/md/ionic/capacitor-config.md",
-      "category": "ionic",
+      "path": "content/md/ionic/04-capacitor/capacitor-config.md",
+      "category": "ionic-capacitor",
       "tags": ["capacitor", "setup", "configuración"]
     },
     {
       "id": "capacitor-plugins",
       "title": "Plugins de Capacitor",
-      "path": "content/md/ionic/capacitor-plugins.md",
-      "category": "ionic",
+      "path": "content/md/ionic/04-capacitor/capacitor-plugins.md",
+      "category": "ionic-capacitor",
       "tags": ["capacitor", "plugins", "cámara", "geolocalización"]
     },
     {
       "id": "capacitor-deploy",
       "title": "Compilación y despliegue con Capacitor",
-      "path": "content/md/ionic/capacitor-deploy.md",
-      "category": "ionic",
+      "path": "content/md/ionic/04-capacitor/capacitor-deploy.md",
+      "category": "ionic-capacitor",
       "tags": ["capacitor", "compilación", "app store", "play store"]
     },
     {
       "id": "capacitor-debugging",
       "title": "Debugging de apps Capacitor",
-      "path": "content/md/ionic/capacitor-debugging.md",
-      "category": "ionic",
+      "path": "content/md/ionic/04-capacitor/capacitor-debugging.md",
+      "category": "ionic-capacitor",
       "tags": ["capacitor", "debugging", "logs", "profiling"]
     },
     {
       "id": "capacitor-ejemplo",
       "title": "Proyectos Capacitor paso a paso",
-      "path": "content/md/ionic/capacitor-ejemplo.md",
-      "category": "ionic",
+      "path": "content/md/ionic/04-capacitor/capacitor-ejemplo.md",
+      "category": "ionic-capacitor",
       "tags": ["capacitor", "ejemplo", "proyecto"]
     },
     {
       "id": "ionic-01-estructura-proyecto",
       "title": "1. Estructura de un proyecto Ionic",
-      "path": "content/md/ionic/ionic-01-estructura-proyecto.md",
-      "category": "ionic",
+      "path": "content/md/ionic/01-fundamentos/ionic-01-estructura-proyecto.md",
+      "category": "ionic-fundamentos",
       "tags": ["fundamentos", "estructura", "carpetas"]
     },
     {
       "id": "ionic-02-layout-esencial",
       "title": "2. Layout esencial: Header, Content y Footer",
-      "path": "content/md/ionic/ionic-02-layout-esencial.md",
-      "category": "ionic",
+      "path": "content/md/ionic/01-fundamentos/ionic-02-layout-esencial.md",
+      "category": "ionic-fundamentos",
       "tags": ["fundamentos", "layout", "header", "content", "footer"]
     },
     {
       "id": "ionic-03-componentes-basicos",
       "title": "3. Componentes básicos de Ionic",
-      "path": "content/md/ionic/ionic-03-componentes-basicos.md",
-      "category": "ionic",
+      "path": "content/md/ionic/01-fundamentos/ionic-03-componentes-basicos.md",
+      "category": "ionic-fundamentos",
       "tags": ["fundamentos", "componentes", "button", "input", "list"]
     },
     {
       "id": "ionic-04-navegacion-basica",
       "title": "4. Navegación básica en Ionic",
-      "path": "content/md/ionic/ionic-04-navegacion-basica.md",
-      "category": "ionic",
+      "path": "content/md/ionic/01-fundamentos/ionic-04-navegacion-basica.md",
+      "category": "ionic-fundamentos",
       "tags": ["fundamentos", "navegacion", "router", "routing"]
     },
     {
       "id": "ionic-05-eventos-datos",
       "title": "5. Eventos y manejo de datos en Ionic",
-      "path": "content/md/ionic/ionic-05-eventos-datos.md",
-      "category": "ionic",
+      "path": "content/md/ionic/01-fundamentos/ionic-05-eventos-datos.md",
+      "category": "ionic-fundamentos",
       "tags": ["fundamentos", "eventos", "datos", "formularios"]
     },
     {
       "id": "ionic-06-intro-frameworks",
       "title": "6. Introducción a frameworks: React, Vue y Angular",
-      "path": "content/md/ionic/ionic-06-intro-frameworks.md",
-      "category": "ionic",
+      "path": "content/md/ionic/01-fundamentos/ionic-06-intro-frameworks.md",
+      "category": "ionic-fundamentos",
       "tags": ["fundamentos", "frameworks", "react", "vue", "angular", "comparacion"]
     },
     {
       "id": "ionic-instalacion-frameworks",
       "title": "Instalación y setup de frameworks para Ionic",
-      "path": "content/md/ionic/ionic-instalacion-frameworks.md",
-      "category": "ionic",
+      "path": "content/md/ionic/02-instalacion/ionic-instalacion-frameworks.md",
+      "category": "ionic-instalacion",
       "tags": ["setup", "instalación", "react", "vue", "angular", "npm"]
     }
   ]
