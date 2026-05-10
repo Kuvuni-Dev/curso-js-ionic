@@ -43,6 +43,37 @@ ion-segment-button::part(indicator-background) {
   background: rgba(129, 140, 248, 0.28);
 }
 
+/* Mini-retos: estilo reutilizable */
+.js-mini-retos-box {
+  background: #fff9c4;
+  padding: 12px;
+  border-radius: 4px;
+  border-left: 4px solid #fbc02d;
+  font-size: 13px;
+  color: #1f2937;
+}
+
+.js-mini-retos-box strong {
+  color: #7c2d12;
+}
+
+/* Mini-retos: alto contraste en dark mode */
+.ion-palette-dark .page div[style*="background: #fff9c4"][style*="border-left: 4px solid #fbc02d"] {
+  color: #1f2937;
+}
+
+.ion-palette-dark .page div[style*="background: #fff9c4"][style*="border-left: 4px solid #fbc02d"] strong {
+  color: #7c2d12;
+}
+
+.ion-palette-dark .js-mini-retos-box {
+  color: #1f2937;
+}
+
+.ion-palette-dark .js-mini-retos-box strong {
+  color: #7c2d12;
+}
+
 .app-shell {
   max-width: 980px;
   margin: 0 auto;

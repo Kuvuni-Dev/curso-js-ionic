@@ -99,7 +99,7 @@ let [x, y] = [1, 2];
 
         <!-- MINI-RETOS -->
         <div class="js-section-title">🎯 Mini-retos</div>
-        <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+        <div class="js-mini-retos-box">
           <strong>Reto 1:</strong> Desestructura objeto anidado sin destructuring anidado (usa variables intermedias)<br>
           <strong>Reto 2:</strong> ¿Por qué las comas vacías en arrays sirven para saltar?<br>
           <strong>Reto 3:</strong> Desestructura parámetro de función con valores por defecto
@@ -217,3 +217,4 @@ export function init(root) {
       <br><small>El rest (<code>...</code>) recoge todos los elementos restantes en un nuevo array.</small>`;
   });
 }
+

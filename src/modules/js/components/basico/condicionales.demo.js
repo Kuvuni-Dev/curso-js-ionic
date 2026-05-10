@@ -46,7 +46,7 @@ export function render() {
 
       <!-- MINI-RETOS -->
       <div class="js-section-title">🎯 Mini-retos</div>
-      <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+      <div class="js-mini-retos-box">
         <strong>Reto 1:</strong> Prueba con nota = 4.9 ¿Qué resultado ves?<br>
         <strong>Reto 2:</strong> Agrega otra condición para "Notable" (≥7)<br>
         <strong>Reto 3:</strong> ¿Qué diferencia hay entre if/else y ternario?
@@ -132,3 +132,4 @@ export function init(root) {
     out.innerHTML = `ternario → <strong style="color: blue;">${res}</strong>`;
   });
 }
+

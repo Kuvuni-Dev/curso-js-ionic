@@ -114,7 +114,7 @@ export function render() {
 
       <!-- MINI-RETOS -->
       <div class="js-section-title">🎯 Mini-retos</div>
-      <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+      <div class="js-mini-retos-box">
         <strong>Reto 1:</strong> Cambia el backgroundColor a rojo usando style<br>
         <strong>Reto 2:</strong> Crea 5 elementos nuevos sin borrar nada<br>
         <strong>Reto 3:</strong> ¿Qué diferencia hay entre textContent e innerHTML?
@@ -509,3 +509,4 @@ export function init(root) {
     }
   });
 }
+

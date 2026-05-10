@@ -94,7 +94,7 @@ export function render() {
 
       <!-- MINI-RETOS -->
       <div class="js-section-title">🎯 Mini-retos</div>
-      <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+      <div class="js-mini-retos-box">
         <strong>Reto 1:</strong> Crea un generator que genere pares infinitamente<br>
         <strong>Reto 2:</strong> ¿Qué diferencia hay entre generator y función normal?<br>
         <strong>Reto 3:</strong> Usa un generator para simular una cola (queue)
@@ -250,3 +250,4 @@ export function init(root) {
     `;
   });
 }
+

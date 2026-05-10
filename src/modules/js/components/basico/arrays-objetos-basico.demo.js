@@ -44,7 +44,7 @@ const curso = {
     
       <!-- MINI-RETOS -->
       <div class="js-section-title">🎯 Mini-retos</div>
-      <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+      <div class="js-mini-retos-box">
         <strong>Reto 1:</strong> Ejecuta todos los botones y compara resultados<br>
         <strong>Reto 2:</strong> Cambia entradas para forzar un caso borde<br>
         <strong>Reto 3:</strong> Explica qué salida esperas antes de ejecutar
@@ -108,6 +108,7 @@ export function init(root) {
     out.innerHTML = `<pre class="js-code-panel">${JSON.stringify(curso, null, 2)}</pre>`;
   });
 }
+
 
 
 

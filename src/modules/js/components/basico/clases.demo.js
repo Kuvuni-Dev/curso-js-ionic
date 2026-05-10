@@ -88,7 +88,7 @@ MathUtils.sumar(3, 4); // 7 — sin new</pre>
 
       <!-- MINI-RETOS -->
       <div class="js-section-title">🎯 Mini-retos</div>
-      <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+      <div class="js-mini-retos-box">
         <strong>Reto 1:</strong> ¿Qué diferencia hay entre super() y this?<br>
         <strong>Reto 2:</strong> Crea una clase Gato que herede de Mamífero<br>
         <strong>Reto 3:</strong> ¿Por qué instanceof devuelve true para toda la cadena?
@@ -219,3 +219,4 @@ export function init(root) {
     `;
   });
 }
+

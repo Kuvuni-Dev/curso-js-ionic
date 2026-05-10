@@ -74,7 +74,7 @@ const saluda = () => 'Hola';</pre>
 
       <!-- MINI-RETOS -->
       <div class="js-section-title">🎯 Mini-retos</div>
-      <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+      <div class="js-mini-retos-box">
         <strong>Reto 1:</strong> Crea tu propia arrow function para restar<br>
         <strong>Reto 2:</strong> ¿Qué diferencia hay entre <code>=></code> y <code>function</code>?<br>
         <strong>Reto 3:</strong> ¿Por qué `this` es diferente en arrow functions?
@@ -209,3 +209,4 @@ export function init(root) {
 };</pre>`;
   });
 }
+

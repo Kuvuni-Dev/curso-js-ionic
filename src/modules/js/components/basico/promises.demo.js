@@ -91,7 +91,7 @@ const p = new Promise((resolve, reject) => {
 
       <!-- MINI-RETOS -->
       <div class="js-section-title">🎯 Mini-retos</div>
-      <div style="background: #fff9c4; padding: 12px; border-radius: 4px; border-left: 4px solid #fbc02d; font-size: 13px;">
+      <div class="js-mini-retos-box">
         <strong>Reto 1:</strong> ¿Cuál es la diferencia entre Promise.all y Promise.allSettled?<br>
         <strong>Reto 2:</strong> ¿Por qué el encadenamiento es más legible que callbacks anidados?<br>
         <strong>Reto 3:</strong> Crea una Promise que se rechace después de 2s
@@ -229,3 +229,4 @@ export function init(root) {
     });
   });
 }
+
