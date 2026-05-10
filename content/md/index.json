@@ -8,13 +8,6 @@
       "tags": ["introducción", "plan"]
     },
     {
-      "id": "prompts-proyecto",
-      "title": "Historial de prompts del proyecto",
-      "path": "content/md/general/prompts-proyecto.md",
-      "category": "general",
-      "tags": ["prompts", "ia", "desarrollo", "historial"]
-    },
-    {
       "id": "guia-del-alumno",
       "title": "Guía del alumno",
       "path": "content/md/general/guia-del-alumno.md",
