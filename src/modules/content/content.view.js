@@ -3,7 +3,8 @@ import { navigateTo } from '../../app/router.js';
 import { fetchDocsIndex, fetchDoc } from './content.service.js';
 
 const CATEGORIES = [
-  { key: 'javascript', label: 'JavaScript', color: 'warning' },
+  { key: 'javascript-basico', label: 'JavaScript básico', color: 'warning' },
+  { key: 'javascript-avanzado', label: 'JavaScript avanzado', color: 'tertiary' },
   { key: 'ionic',      label: 'Ionic',      color: 'primary' },
   { key: 'general',    label: 'General',    color: 'success' },
 ];

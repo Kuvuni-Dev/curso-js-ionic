@@ -50,199 +50,255 @@
       "tags": ["faq", "dudas", "soporte"]
     },
     {
+      "id": "js-variables-tipos",
+      "title": "Variables y tipos de datos",
+      "path": "content/md/javascript/js-variables-tipos.md",
+      "category": "javascript-basico",
+      "tags": ["variables", "tipos", "fundamentos"]
+    },
+    {
+      "id": "js-operadores",
+      "title": "Operadores en JavaScript",
+      "path": "content/md/javascript/js-operadores.md",
+      "category": "javascript-basico",
+      "tags": ["operadores", "comparación", "lógica"]
+    },
+    {
+      "id": "js-condicionales",
+      "title": "Condicionales",
+      "path": "content/md/javascript/js-condicionales.md",
+      "category": "javascript-basico",
+      "tags": ["if", "switch", "control de flujo"]
+    },
+    {
+      "id": "js-bucles",
+      "title": "Bucles",
+      "path": "content/md/javascript/js-bucles.md",
+      "category": "javascript-basico",
+      "tags": ["for", "while", "iteración"]
+    },
+    {
+      "id": "js-funciones-basicas",
+      "title": "Funciones básicas",
+      "path": "content/md/javascript/js-funciones-basicas.md",
+      "category": "javascript-basico",
+      "tags": ["funciones", "parámetros", "scope"]
+    },
+    {
+      "id": "js-arrays-objetos-basico",
+      "title": "Arrays y objetos (básico)",
+      "path": "content/md/javascript/js-arrays-objetos-basico.md",
+      "category": "javascript-basico",
+      "tags": ["arrays", "objetos", "estructuras de datos"]
+    },
+    {
+      "id": "js-dom-basico",
+      "title": "DOM básico",
+      "path": "content/md/javascript/js-dom-basico.md",
+      "category": "javascript-basico",
+      "tags": ["dom", "querySelector", "interfaz"]
+    },
+    {
+      "id": "js-eventos-dom",
+      "title": "Eventos en el DOM",
+      "path": "content/md/javascript/js-eventos-dom.md",
+      "category": "javascript-basico",
+      "tags": ["eventos", "formularios", "addEventListener"]
+    },
+    {
       "id": "js-closures",
       "title": "Closures",
       "path": "content/md/javascript/js-closures.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["closures", "scope"]
     },
     {
       "id": "js-asincronia",
       "title": "Programación asíncrona",
       "path": "content/md/javascript/js-asincronia.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["async", "await", "promises"]
     },
     {
       "id": "js-prototype",
       "title": "Prototipos en JavaScript",
       "path": "content/md/javascript/js-prototype.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["prototype", "herencia"]
     },
     {
       "id": "js-this-context",
       "title": "El valor de this",
       "path": "content/md/javascript/js-this-context.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["this", "contexto"]
     },
     {
       "id": "js-hoisting",
       "title": "Hoisting y TDZ",
       "path": "content/md/javascript/js-hoisting.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["hoisting", "let", "const"]
     },
     {
       "id": "js-regex",
       "title": "Expresiones regulares",
       "path": "content/md/javascript/js-regex.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["regex", "validación", "búsqueda"]
     },
     {
       "id": "js-arrow-functions",
       "title": "Arrow Functions",
       "path": "content/md/javascript/js-arrow-functions.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["arrow functions", "this"]
     },
     {
       "id": "js-optional-chaining",
       "title": "Optional chaining y nullish coalescing",
       "path": "content/md/javascript/js-optional-chaining.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["optional chaining", "nullish coalescing"]
     },
     {
       "id": "js-es-modules",
       "title": "Módulos ES",
       "path": "content/md/javascript/js-es-modules.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["import", "export", "módulos"]
     },
     {
       "id": "js-higher-order",
       "title": "Funciones de orden superior",
       "path": "content/md/javascript/js-higher-order.md",
-      "category": "javascript",
+      "category": "javascript-avanzado",
       "tags": ["higher-order", "funciones"]
     },
     {
       "id": "js-currying",
       "title": "Currying y composición",
       "path": "content/md/javascript/js-currying.md",
-      "category": "javascript",
+      "category": "javascript-avanzado",
       "tags": ["currying", "composición"]
     },
     {
       "id": "js-generators",
       "title": "Generators e iteradores",
       "path": "content/md/javascript/js-generators.md",
-      "category": "javascript",
+      "category": "javascript-avanzado",
       "tags": ["generators", "iteradores"]
     },
     {
       "id": "js-event-loop",
       "title": "Event loop y call stack",
       "path": "content/md/javascript/js-event-loop.md",
-      "category": "javascript",
+      "category": "javascript-avanzado",
       "tags": ["event loop", "asincronía"]
     },
     {
       "id": "js-promises",
       "title": "Promises",
       "path": "content/md/javascript/js-promises.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["promises", "asincronía"]
     },
     {
       "id": "js-async-await",
       "title": "Async / Await",
       "path": "content/md/javascript/js-async-await.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["async", "await"]
     },
     {
       "id": "js-fetch-api",
       "title": "Fetch API",
       "path": "content/md/javascript/js-fetch-api.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["fetch", "http"]
     },
     {
       "id": "js-destructuring",
       "title": "Destructuring",
       "path": "content/md/javascript/js-destructuring.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["destructuring", "objetos", "arrays"]
     },
     {
       "id": "js-spread-rest",
       "title": "Spread y Rest",
       "path": "content/md/javascript/js-spread-rest.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["spread", "rest"]
     },
     {
       "id": "js-array-methods",
       "title": "Métodos de array avanzados",
       "path": "content/md/javascript/js-array-methods.md",
-      "category": "javascript",
+      "category": "javascript-avanzado",
       "tags": ["array", "map", "filter", "reduce"]
     },
     {
       "id": "js-map-set",
       "title": "Map y Set",
       "path": "content/md/javascript/js-map-set.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["map", "set", "colecciones"]
     },
     {
       "id": "js-clases",
       "title": "Clases en JavaScript",
       "path": "content/md/javascript/js-clases.md",
-      "category": "javascript",
+      "category": "javascript-basico",
       "tags": ["clases", "oop"]
     },
     {
       "id": "js-privados",
       "title": "Propiedades privadas con #",
       "path": "content/md/javascript/js-privados.md",
-      "category": "javascript",
+      "category": "javascript-avanzado",
       "tags": ["privados", "clases"]
     },
     {
       "id": "js-mixins",
       "title": "Mixins y composición",
       "path": "content/md/javascript/js-mixins.md",
-      "category": "javascript",
+      "category": "javascript-avanzado",
       "tags": ["mixins", "composición"]
     },
     {
       "id": "js-dynamic-import",
       "title": "Import dinámico",
       "path": "content/md/javascript/js-dynamic-import.md",
-      "category": "javascript",
+      "category": "javascript-avanzado",
       "tags": ["import", "dinámico"]
     },
     {
       "id": "js-module-patterns",
       "title": "Patrones de módulo",
       "path": "content/md/javascript/js-module-patterns.md",
-      "category": "javascript",
+      "category": "javascript-avanzado",
       "tags": ["módulos", "patrón"]
     },
     {
       "id": "js-patron-singleton",
       "title": "Patrón Singleton",
       "path": "content/md/javascript/js-patron-singleton.md",
-      "category": "javascript",
+      "category": "javascript-avanzado",
       "tags": ["singleton", "patrón"]
     },
     {
       "id": "js-patron-observer",
       "title": "Patrón Observer",
       "path": "content/md/javascript/js-patron-observer.md",
-      "category": "javascript",
+      "category": "javascript-avanzado",
       "tags": ["observer", "patrón"]
     },
     {
       "id": "js-patron-factory",
       "title": "Patrón Factory",
       "path": "content/md/javascript/js-patron-factory.md",
-      "category": "javascript",
+      "category": "javascript-avanzado",
       "tags": ["factory", "patrón"]
     },
     {
