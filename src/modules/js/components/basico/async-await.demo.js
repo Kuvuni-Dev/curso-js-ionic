@@ -15,16 +15,16 @@ function esperar(ms) {
   }
 
   function esperar(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-function simularApiPaso(nombre, ms, falla = false) {
-  return new Promise((resolve, reject) =>
-    setTimeout(() => falla ? reject(new Error(`Error en ${nombre}`)) : resolve(`✅ ${nombre} listo`), ms)
-  );
-}
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  function simularApiPaso(nombre, ms, falla = false) {
+    return new Promise((resolve, reject) =>
+      setTimeout(() => falla ? reject(new Error(`Error en ${nombre}`)) : resolve(`✅ ${nombre} listo`), ms)
+    );
+  }
 
-export function render() {
-  return `
+  export function render() {
+    return `
     <section class="page">
       <ion-button fill="clear" onclick="location.hash='#/js'">
         <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
@@ -133,72 +133,72 @@ async function paralelo() {
         </div>
     </section>
   `;
-}
-
-export function init(root) {
-  const seqLog = root.querySelector('#seq-log');
-  const parLog = root.querySelector('#par-log');
-  const tcOut  = root.querySelector('#tc-output');
-
-  function logLine(container, msg, type = '') {
-    const el = document.createElement('div');
-    el.className = `js-log-line ${type}`;
-    el.innerHTML = msg;
-    container.appendChild(el);
-    container.scrollTop = container.scrollHeight;
   }
 
-  // 1. Secuencial
-  root.querySelector('#btn-sequential').addEventListener('click', async () => {
-    seqLog.innerHTML = '';
-    const t0 = Date.now();
-    logLine(seqLog, '⏳ Iniciando pasos secuenciales…');
-    const r1 = await simularApiPaso('Paso 1 (autenticación)', 400);
-    logLine(seqLog, `${r1} — ${Date.now() - t0}ms`, 'event');
-    const r2 = await simularApiPaso('Paso 2 (cargar perfil)', 500);
-    logLine(seqLog, `${r2} — ${Date.now() - t0}ms`, 'event');
-    const r3 = await simularApiPaso('Paso 3 (cargar datos)', 300);
-    logLine(seqLog, `${r3} — ${Date.now() - t0}ms`, 'event');
-    logLine(seqLog, `🏁 Completado en ${Date.now() - t0}ms (suma de todos los pasos)`);
-  });
+  export function init(root) {
+    const seqLog = root.querySelector('#seq-log');
+    const parLog = root.querySelector('#par-log');
+    const tcOut = root.querySelector('#tc-output');
 
-  // 2. Paralelo
-  root.querySelector('#btn-parallel').addEventListener('click', async () => {
-    parLog.innerHTML = '';
-    const t0 = Date.now();
-    logLine(parLog, '⚡ Lanzando todas las operaciones en paralelo…');
-    const [r1, r2, r3] = await Promise.all([
-      simularApiPaso('Petición A', 400),
-      simularApiPaso('Petición B', 500),
-      simularApiPaso('Petición C', 300),
-    ]);
-    [r1, r2, r3].forEach(r => logLine(parLog, r, 'event'));
-    logLine(parLog, `🏁 Completado en ${Date.now() - t0}ms (solo el más lento: 500ms)`);
-  });
+    function logLine(container, msg, type = '') {
+      const el = document.createElement('div');
+      el.className = `js-log-line ${type}`;
+      el.innerHTML = msg;
+      container.appendChild(el);
+      container.scrollTop = container.scrollHeight;
+    }
 
-  // 3. Try/catch
-  root.querySelector('#btn-trycatch-ok').addEventListener('click', async () => {
-    tcOut.innerHTML = '⏳ Ejecutando…';
-    try {
-      await esperar(500);
-      const resultado = await simularApiPaso('Servicio', 300);
-      tcOut.innerHTML = `✅ <strong>try</strong> ejecutado: "${resultado}"
+    // 1. Secuencial
+    root.querySelector('#btn-sequential').addEventListener('click', async () => {
+      seqLog.innerHTML = '';
+      const t0 = Date.now();
+      logLine(seqLog, '⏳ Iniciando pasos secuenciales…');
+      const r1 = await simularApiPaso('Paso 1 (autenticación)', 400);
+      logLine(seqLog, `${r1} — ${Date.now() - t0}ms`, 'event');
+      const r2 = await simularApiPaso('Paso 2 (cargar perfil)', 500);
+      logLine(seqLog, `${r2} — ${Date.now() - t0}ms`, 'event');
+      const r3 = await simularApiPaso('Paso 3 (cargar datos)', 300);
+      logLine(seqLog, `${r3} — ${Date.now() - t0}ms`, 'event');
+      logLine(seqLog, `🏁 Completado en ${Date.now() - t0}ms (suma de todos los pasos)`);
+    });
+
+    // 2. Paralelo
+    root.querySelector('#btn-parallel').addEventListener('click', async () => {
+      parLog.innerHTML = '';
+      const t0 = Date.now();
+      logLine(parLog, '⚡ Lanzando todas las operaciones en paralelo…');
+      const [r1, r2, r3] = await Promise.all([
+        simularApiPaso('Petición A', 400),
+        simularApiPaso('Petición B', 500),
+        simularApiPaso('Petición C', 300),
+      ]);
+      [r1, r2, r3].forEach(r => logLine(parLog, r, 'event'));
+      logLine(parLog, `🏁 Completado en ${Date.now() - t0}ms (solo el más lento: 500ms)`);
+    });
+
+    // 3. Try/catch
+    root.querySelector('#btn-trycatch-ok').addEventListener('click', async () => {
+      tcOut.innerHTML = '⏳ Ejecutando…';
+      try {
+        await esperar(500);
+        const resultado = await simularApiPaso('Servicio', 300);
+        tcOut.innerHTML = `✅ <strong>try</strong> ejecutado: "${resultado}"
         <br><small>El bloque catch NO se ejecutó porque no hubo error.</small>`;
-    } catch (err) {
-      tcOut.innerHTML = `❌ catch: "${err.message}"`;
-    }
-  });
+      } catch (err) {
+        tcOut.innerHTML = `❌ catch: "${err.message}"`;
+      }
+    });
 
-  root.querySelector('#btn-trycatch-fail').addEventListener('click', async () => {
-    tcOut.innerHTML = '⏳ Ejecutando…';
-    try {
-      await esperar(200);
-      await simularApiPaso('Servicio', 400, true); // lanza error
-      tcOut.innerHTML = '✅ Esto nunca se muestra cuando hay error.';
-    } catch (err) {
-      tcOut.innerHTML = `❌ <strong>catch</strong> capturó: "${err.message}"
+    root.querySelector('#btn-trycatch-fail').addEventListener('click', async () => {
+      tcOut.innerHTML = '⏳ Ejecutando…';
+      try {
+        await esperar(200);
+        await simularApiPaso('Servicio', 400, true); // lanza error
+        tcOut.innerHTML = '✅ Esto nunca se muestra cuando hay error.';
+      } catch (err) {
+        tcOut.innerHTML = `❌ <strong>catch</strong> capturó: "${err.message}"
         <br><small>await convierte el reject de la Promise en una excepción que catch puede capturar.</small>`;
-    }
-  });
+      }
+    });
+  }
 }
-

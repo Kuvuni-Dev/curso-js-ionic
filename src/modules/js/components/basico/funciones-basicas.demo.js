@@ -42,7 +42,7 @@ export function render() {
 
       <div class="js-section-title">Fragmento base</div>
       <pre class="js-code-panel">function saludar(nombre, rol = 'alumno') {
-  return `Hola, ${nombre}. Rol: ${rol}.`;
+  return \`Hola, \${nombre}. Rol: \${rol}.\`;
 }
 
 saludar('Lucia');

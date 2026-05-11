@@ -307,7 +307,7 @@ export function init(root) {
     updateConsole();
     out.innerHTML = `✅ Contador reseteado a 0`;
   });
-}
+
   return `
     <section class="page">
       <ion-button fill="clear" onclick="location.hash='#/js'">
@@ -424,108 +424,5 @@ localStorage.clear();</pre>
       <div id="json-output" class="js-output" style="min-height:50px;">👆 Interactúa con los botones para ver JSON y localStorage.</div>
     </section>
   `;
+
 }
-
-export function init(root) {
-  const out = root.querySelector('#json-output');
-
-  // Objeto de ejemplo
-  const usuario = {
-    nombre: 'Usuario ejemplo',
-    edad: 25,
-    temas: ['JavaScript', 'Web', 'Ionic'],
-    activo: true
-  };
-
-  // Escenario 1: JSON stringify/parse
-  root.querySelector('#json-btn-stringify').addEventListener('click', () => {
-    const json = JSON.stringify(usuario, null, 2);  // null, 2 = formato legible
-    root.querySelector('#json-output-formato').innerHTML = `<strong>Objeto → JSON:</strong><br><br>${json}`;
-    out.innerHTML = `✅ JSON.stringify convierte objeto a texto`;
-  });
-
-  root.querySelector('#json-btn-parse').addEventListener('click', () => {
-    const json = JSON.stringify(usuario);
-    const parsed = JSON.parse(json);
-    root.querySelector('#json-output-formato').innerHTML = `
-      <strong>JSON → Objeto:</strong><br><br>
-      JSON original:<br>
-      ${json}<br><br>
-      Parseado:<br>
-      nombre: ${parsed.nombre}<br>
-      edad: ${parsed.edad}<br>
-      temas: ${parsed.temas.join(', ')}
-    `;
-    out.innerHTML = `✅ JSON.parse convierte texto a objeto (ahora puedes acceder propiedades)`;
-  });
-
-  // Escenario 2: Guardar en localStorage
-  root.querySelector('#ls-btn-guardar').addEventListener('click', () => {
-    const nombre = root.querySelector('#ls-input-nombre').value || 'anónimo';
-    const tema = root.querySelector('#ls-select-tema').value || 'claro';
-    
-    const datos = {
-      nombre: nombre,
-      tema: tema,
-      fechaGuardada: new Date().toLocaleString()
-    };
-
-    localStorage.setItem('misDatos', JSON.stringify(datos));
-    out.innerHTML = `✅ localStorage.setItem('misDatos', '${JSON.stringify(datos)}')`;
-  });
-
-  // Escenario 3: Cargar de localStorage
-  root.querySelector('#ls-btn-cargar').addEventListener('click', () => {
-    const guardado = localStorage.getItem('misDatos');
-    if (guardado) {
-      const datos = JSON.parse(guardado);
-      root.querySelector('#ls-output-cargar').innerHTML = `
-        ✅ Datos recuperados:<br>
-        📝 Nombre: <strong>${datos.nombre}</strong><br>
-        🎨 Tema: <strong>${datos.tema}</strong><br>
-        ⏰ Guardado: <strong>${datos.fechaGuardada}</strong>
-      `;
-      out.innerHTML = `✅ localStorage.getItem('misDatos') recuperó los datos`;
-    } else {
-      root.querySelector('#ls-output-cargar').innerHTML = `⚠️ No hay datos guardados`;
-      out.innerHTML = `⚠️ localStorage vacío. Primero guarda datos.`;
-    }
-  });
-
-  root.querySelector('#ls-btn-limpiar').addEventListener('click', () => {
-    localStorage.removeItem('misDatos');
-    root.querySelector('#ls-output-cargar').innerHTML = `🗑️ Datos eliminados`;
-    out.innerHTML = `✅ localStorage.removeItem('misDatos')`;
-  });
-
-  // Escenario 4: Contador persistente
-  const actualizarContador = () => {
-    const contador = localStorage.getItem('contador') || '0';
-    root.querySelector('#contador-display').textContent = contador;
-  };
-
-  actualizarContador();  // Cargar al iniciar
-
-  root.querySelector('#ls-btn-incrementar').addEventListener('click', () => {
-    let contador = parseInt(localStorage.getItem('contador') || '0');
-    contador++;
-    localStorage.setItem('contador', contador.toString());
-    actualizarContador();
-    out.innerHTML = `✅ Contador incrementado a ${contador}`;
-  });
-
-  root.querySelector('#ls-btn-decrementar').addEventListener('click', () => {
-    let contador = parseInt(localStorage.getItem('contador') || '0');
-    contador--;
-    localStorage.setItem('contador', contador.toString());
-    actualizarContador();
-    out.innerHTML = `✅ Contador decrementado a ${contador}`;
-  });
-
-  root.querySelector('#ls-btn-reset').addEventListener('click', () => {
-    localStorage.setItem('contador', '0');
-    actualizarContador();
-    out.innerHTML = `✅ Contador reseteado a 0`;
-  });
-}
-

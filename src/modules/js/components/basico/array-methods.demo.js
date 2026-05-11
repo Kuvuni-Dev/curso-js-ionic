@@ -147,14 +147,13 @@ export function init(root) {
 
   root.querySelector('#btn-findindex').addEventListener('click', () => {
     const idx = ALUMNOS.findIndex(a => a.grado === 'DAM');
+    const alumno = ALUMNOS[idx];
     show(
-      `<code>.findIndex(a => a.grado === 'DAM')</code><br>`,
+      `<code>.findIndex(a => a.grado === 'DAM')</code><br>
+       → índice del primer alumno de DAM: <strong>${idx}</strong><br>
+       (${alumno ? alumno.nombre : 'ninguno'})`,
       `alumnos.findIndex(a => a.grado === 'DAM');\n// ${idx}`,
-      [`findIndex(a => a.grado === 'DAM')`, `Índice del primer resultado: ${idx}`, `Alumno: ${ALUMNOS[idx]?.nombre}`]
-    );
-       → índice del primer alumno de DAM: <strong>${idx}</strong>
-       (${ALUMNOS[idx].nombre})`,
-      `alumnos.findIndex(a => a.grado === 'DAM'); // ${idx}`
+      [`findIndex(a => a.grado === 'DAM')`, `Índice del primer resultado: ${idx}`, `Alumno: ${alumno?.nombre ?? 'ninguno'}`]
     );
   });
 
