@@ -42,7 +42,7 @@ export function render() {
 const curso = 'JavaScript';
 
 const concat = 'Hola ' + nombre + ', bienvenida a ' + curso;
-const template = `Hola ${nombre}, bienvenida a ${curso}`;</pre>
+const template = \`Hola \${nombre}, bienvenida a \${curso}\`;</pre>
     
       <!-- MINI-RETOS -->
       <div class="js-section-title">🎯 Mini-retos</div>

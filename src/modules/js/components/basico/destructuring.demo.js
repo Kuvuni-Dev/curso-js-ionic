@@ -3,19 +3,18 @@
  * @description Demo interactivo: Destructuring de objetos y arrays.
  */
 
-export function render() {
-  // Utilidad: Consola simulada
-  class SimulatedConsole {
-    constructor() { this.logs = []; }
-    log(...args) { this.logs.push({ type: 'log', message: args.map(a => String(a)).join(' ') }); }
-    warn(...args) { this.logs.push({ type: 'warn', message: args.map(a => String(a)).join(' ') }); }
-    error(...args) { this.logs.push({ type: 'error', message: args.map(a => String(a)).join(' ') }); }
-    clear() { this.logs = []; }
-    render() { return this.logs.slice(-8).map(l => `<span style="color: ${l.type === 'error' ? '#d32f2f' : l.type === 'warn' ? '#f57c00' : '#1976d2'}">${l.type === 'error' ? '❌' : l.type === 'warn' ? '⚠️' : '✓'} ${l.message}</span>`).join('<br>'); }
-  }
+// Utilidad: Consola simulada
+class SimulatedConsole {
+  constructor() { this.logs = []; }
+  log(...args) { this.logs.push({ type: 'log', message: args.map(a => String(a)).join(' ') }); }
+  warn(...args) { this.logs.push({ type: 'warn', message: args.map(a => String(a)).join(' ') }); }
+  error(...args) { this.logs.push({ type: 'error', message: args.map(a => String(a)).join(' ') }); }
+  clear() { this.logs = []; }
+  render() { return this.logs.slice(-8).map(l => `<span style="color: ${l.type === 'error' ? '#d32f2f' : l.type === 'warn' ? '#f57c00' : '#1976d2'}">${l.type === 'error' ? '❌' : l.type === 'warn' ? '⚠️' : '✓'} ${l.message}</span>`).join('<br>'); }
+}
 
-  export function render() {
-    return `
+export function render() {
+  return `
     <section class="page">
       <ion-button fill="clear" onclick="location.hash='#/js'">
         <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
@@ -122,18 +121,24 @@ let [x, y] = [1, 2];
         </div>
     </section>
   `;
-  }
+}
 
-  export function init(root) {
-    const persona = {
-      nombre: 'Ana',
-      edad: 28,
-      ciudad: 'Madrid',
-      direccion: { calle: 'Gran Vía', numero: 5 },
-    };
+export function init(root) {
+  const simConsole = new SimulatedConsole();
+  const consoleDisplay = root.querySelector('#dest-console');
+  const updateConsole = () => {
+    consoleDisplay.innerHTML = simConsole.render() || '<div style="color: #888;">// Vacío</div>';
+  };
 
-    const objOut = root.querySelector('#obj-out');
-    const arrOut = root.querySelector('#arr-out');
+  const persona = {
+    nombre: 'Ana',
+    edad: 28,
+    ciudad: 'Madrid',
+    direccion: { calle: 'Gran Vía', numero: 5 },
+  };
+
+  const objOut = root.querySelector('#obj-out');
+  const arrOut = root.querySelector('#arr-out');
 
     // Objeto
     root.querySelector('#btn-obj-basic').addEventListener('click', () => {
@@ -143,78 +148,64 @@ let [x, y] = [1, 2];
       <strong>nombre</strong> → "${nombre}" &nbsp;|&nbsp;
       <strong>edad</strong> → ${edad} &nbsp;|&nbsp;
       <strong>ciudad</strong> → "${ciudad}"`;
-    });
+  });
 
-    root.querySelector('#btn-obj-rename').addEventListener('click', () => {
-      const { nombre: name, edad: years } = persona;
-      objOut.innerHTML = `
+  root.querySelector('#btn-obj-rename').addEventListener('click', () => {
+    const { nombre: name, edad: years } = persona;
+    objOut.innerHTML = `
       <pre class="js-code-panel" style="margin:0">const { nombre: name, edad: years } = persona;</pre>
       <strong>name</strong> → "${name}" &nbsp;|&nbsp;
       <strong>years</strong> → ${years}
       <br><small>La variable se llama <code>name</code>, no <code>nombre</code>.</small>`;
-    });
+  });
 
-    root.querySelector('#btn-obj-default').addEventListener('click', () => {
-      const { nombre, pais = 'España', telefono = 'no disponible' } = persona;
-      objOut.innerHTML = `
+  root.querySelector('#btn-obj-default').addEventListener('click', () => {
+    const { nombre, pais = 'España', telefono = 'no disponible' } = persona;
+    objOut.innerHTML = `
       <pre class="js-code-panel" style="margin:0">const { nombre, pais = 'España', telefono = 'no disponible' } = persona;</pre>
       <strong>nombre</strong> → "${nombre}" (existía)<br>
       <strong>pais</strong> → "${pais}" (valor por defecto — no estaba en el objeto)<br>
       <strong>telefono</strong> → "${telefono}" (valor por defecto)`;
-    });
+  });
 
-    root.querySelector('#btn-obj-nested').addEventListener('click', () => {
-      const { nombre, direccion: { calle, numero } } = persona;
-      objOut.innerHTML = `
+  root.querySelector('#btn-obj-nested').addEventListener('click', () => {
+    const { nombre, direccion: { calle, numero } } = persona;
+    objOut.innerHTML = `
       <pre class="js-code-panel" style="margin:0">const { nombre, direccion: { calle, numero } } = persona;</pre>
       <strong>nombre</strong> → "${nombre}"<br>
       <strong>calle</strong> → "${calle}" &nbsp;|&nbsp;
       <strong>numero</strong> → ${numero}
       <br><small>Se puede desestructurar directamente propiedades anidadas.</small>`;
-    });
+  });
 
-    // Array
-    const nums = [10, 20, 30, 40, 50];
+  // Array
+  const nums = [10, 20, 30, 40, 50];
 
-    root.querySelector('#btn-obj-basic').addEventListener('click', () => {
-      simConsole.clear();
-      const { nombre, edad, ciudad } = persona;
-      simConsole.log(`const { nombre, edad, ciudad } = persona`);
-      simConsole.log(`nombre: "${nombre}", edad: ${edad}, ciudad: "${ciudad}"`);
-      updateConsole();
-      objOut.innerHTML = `
-      <pre class="js-code-panel" style="margin:0">const { nombre, edad, ciudad } = persona;</pre>
-      <strong>nombre</strong> → "${nombre}" &nbsp;|&nbsp;
-      <strong>edad</strong> → ${edad} &nbsp;|&nbsp;
-      <strong>ciudad</strong> → "${ciudad}"`;
-    });
-
-    root.querySelector('#btn-arr-skip').addEventListener('click', () => {
-      const [primero, , tercero, , quinto] = nums;
-      arrOut.innerHTML = `
+  root.querySelector('#btn-arr-skip').addEventListener('click', () => {
+    const [primero, , tercero, , quinto] = nums;
+    arrOut.innerHTML = `
       <pre class="js-code-panel" style="margin:0">const [primero, , tercero, , quinto] = nums;</pre>
       <strong>primero</strong> → ${primero} &nbsp;|&nbsp;
       <strong>tercero</strong> → ${tercero} &nbsp;|&nbsp;
       <strong>quinto</strong> → ${quinto}
       <br><small>Las comas vacías saltan las posiciones correspondientes.</small>`;
-    });
+  });
 
-    root.querySelector('#btn-arr-swap').addEventListener('click', () => {
-      let x = 1, y = 2;
-      arrOut.innerHTML = `Antes: x=${x}, y=${y}<br>`;
-      [x, y] = [y, x];
-      arrOut.innerHTML += `
+  root.querySelector('#btn-arr-swap').addEventListener('click', () => {
+    let x = 1, y = 2;
+    arrOut.innerHTML = `Antes: x=${x}, y=${y}<br>`;
+    [x, y] = [y, x];
+    arrOut.innerHTML += `
       <pre class="js-code-panel" style="margin:4px 0">let x = 1, y = 2;\n[x, y] = [y, x]; // swap sin variable temporal</pre>
       Después: <strong>x=${x}, y=${y}</strong>`;
-    });
+  });
 
-    root.querySelector('#btn-arr-rest').addEventListener('click', () => {
-      const [cabeza, ...cola] = nums;
-      arrOut.innerHTML = `
+  root.querySelector('#btn-arr-rest').addEventListener('click', () => {
+    const [cabeza, ...cola] = nums;
+    arrOut.innerHTML = `
       <pre class="js-code-panel" style="margin:0">const [cabeza, ...cola] = [10, 20, 30, 40, 50];</pre>
       <strong>cabeza</strong> → ${cabeza}<br>
       <strong>cola</strong> → [${cola.join(', ')}]
       <br><small>El rest (<code>...</code>) recoge todos los elementos restantes en un nuevo array.</small>`;
-    });
-  }
+  });
 }
